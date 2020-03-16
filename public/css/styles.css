@@ -2,13 +2,13 @@ body {
     background-color: #212121;
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
-
+/* navigation */
 nav {
     border-left: 1px solid #e2e2e2;
     border-top: 1px solid #e2e2e2;
     width: 25%;
     height: 370px;
-    margin-top: 17%;
+    margin-top: 10%;
     margin-left: 5%;
 }
 
@@ -35,9 +35,74 @@ li {
     text-transform: uppercase;
     letter-spacing: 0.5em;
     transition: all 0.2s cubic-bezier(.4,0,.2,1);
+    cursor: pointer;
 }
 
 a, ul{
     text-decoration: none;
     list-style-type: none;
 }
+
+/* navigation// */
+
+/* login */
+
+.login-form {
+    position: relative;
+    border-left: 1px solid #e2e2e2;
+    border-top: 1px solid #e2e2e2;
+    max-width: 25%;
+    height: 370px;
+    margin: -370px auto 0;
+    margin-left: 55%;
+}
+
+.signup-form input {
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 70%;
+    height: 40px;
+    padding: 0px 5%;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+#remember{
+    margin-top: 2%;
+    width: 10%;
+    height: 20px;
+}
+
+#remembertext{
+    color: #e2e2e2;
+}
+
+.signup-form button {
+    margin-left: 5%;
+    margin-top: 6%;
+    height: 2.5rem;
+    width: 60%;
+    background-color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    transition: all 0.2s cubic-bezier(.4,0,.2,1);
+    color: #e2e2e2;
+    cursor: pointer;
+}
+
+.notmember p{
+    color: #e2e2e2;
+    margin-left: 5%;
+}
+/* login// */
+
+/* registration */
+input[type="date"]{
+}
+
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+    -webkit-appearance: none;
+}
+/* registration// */

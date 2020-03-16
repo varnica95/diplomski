@@ -4,11 +4,6 @@ namespace App\Core;
 
 class View
 {
-    protected $view_file;
-
-    protected $view_data;
-
-
     public function render($templateFile, array $vars = [])
     {
         if (file_exists(BP . '/app/Views/' . $templateFile)) {

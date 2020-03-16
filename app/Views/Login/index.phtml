@@ -1,0 +1,13 @@
+<?php require '../app/Views/header.phtml' ?>
+
+<div class="login-form">
+    <form class="signup-form" action="/login/userLogin" method="POST">
+        <input type="text" name="usernameoremail" placeholder="Username or email"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input id="remember" type="checkbox" name="remember"> <a id="remembertext">Remember me</a><br>
+        <button type="submit" name="login-submit">Login</button>
+       </form>
+    <div class="notmember"><p>Not a member? Please, <a href="home/index">sign up</a>!</p></div>
+</div>
+
+<?php require '../app/Views/footer.phtml' ?>

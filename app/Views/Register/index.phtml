@@ -1,0 +1,18 @@
+<?php require '../app/Views/header.phtml';
+?>
+
+<div class="login-form">
+    <form class="signup-form" action="/registration/signup" method="POST">
+        <input type="text" name="firstname" placeholder="First name"><br>
+        <input type="text" name="lastname" placeholder="Last name"><br>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="date" name="birthdate"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="password" name="password-again" placeholder="Repeat your password"><br>
+
+        <button type="submit" name="signup-submit">Register</button>
+    </form>
+</div>
+
+<?php require '../app/Views/footer.phtml' ?>
