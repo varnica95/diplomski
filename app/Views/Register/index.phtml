@@ -1,19 +1,33 @@
-<?php require '../app/Views/header.phtml';
-var_dump($success, $errors);
-?>
+<?php require '../app/Views/header.phtml'; ?>
 
 <div class="login-form">
     <form class="signup-form" action="/registration/signup" method="POST">
-        <input type="text" name="firstname" placeholder="First name"><br>
-        <input type="text" name="lastname" placeholder="Last name"><br>
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="text" name="email" placeholder="Email"><br>
+        <input <?php if(isset($errors["firstname"])) echo "id=error";?> type="text" name="firstname" placeholder="First name"><br>
+        <?php if(isset($errors["firstname"])):?><label id="error-label">*<?php echo $errors["firstname"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["lastname"])) echo "id=error";?> type="text" name="lastname" placeholder="Last name"><br>
+        <?php if(isset($errors["lastname"])):?><label id="error-label">*<?php echo $errors["lastname"];?></label> <?php endif;?>
+
+        <input <?php if(isset($errors["username"])) echo "id=error";?> type="text" name="username" placeholder="Username"><br>
+        <?php if(isset($errors["username"])):?><label id="error-label">*<?php echo $errors["username"];?></label> <?php endif;?>
+        <?php if(isset($errors["usernameexists"])):?><label id="error-label">*<?php echo $errors["usernameexists"];?></label> <?php endif;?>
+
+        <input <?php if(isset($errors["email"])) echo "id=error";?> type="text" name="email" placeholder="Email"><br>
+        <?php if(isset($errors["email"])):?><label id="error-label">*<?php echo $errors["email"];?></label> <?php endif;?>
+        <?php if(isset($errors["emailexists"])):?><label id="error-label">*<?php echo $errors["emailexists"];?></label> <?php endif;?>
+
         <input type="date" name="birthdate" min="1920-12-31" max="2010-12-31"><br>
-        <input type="password" name="password" placeholder="Password"><br>
+        <input <?php if(isset($errors["password"])) echo "id=error";?> type="password" name="password" placeholder="Password"><br>
+        <?php if(isset($errors["password"])):?><label id="error-label">*<?php echo $errors["password"];?></label> <?php endif;?>
+
         <input type="password" name="password-again" placeholder="Repeat your password"><br>
 
-        <button type="submit" name="signup-submit">Register</button>
+        <?php if(isset($errors["empty"])):?><label id="error-label">*<?php echo $errors["empty"];?></label> <?php endif;?>
 
+        <?php if(!isset($errors["emailexists"]) && !isset($errors["usernameexists"]) && isset($success)):?>
+            <button id="success" type="submit" name="signup-submit">&#10004;Registered</button>
+        <?php else:?>
+            <button type="submit" name="signup-submit">Register</button>
+        <?php endif; ?>
     </form>
 </div>
 

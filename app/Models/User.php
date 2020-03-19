@@ -69,6 +69,8 @@ class User extends Model
                     }
                         Cookie::put($this->_cookiename, $hash, Config::getInstance()->getConfig("rememberme/cookie_expiry"));
                 }
+                Session::set('firstname', $loggeduser->data['firstname']);
+                Session::set('lastname', $loggeduser->data['lastname']);
 
                 return true;
             }
@@ -82,7 +84,7 @@ class User extends Model
     {
         if(!empty($this->load("users", "username", $this->data["username"])))
         {
-            $this->makeError("exists", "Username ". $this->data["username"] . " already exists.");
+            $this->makeError("usernameexists", "Username ". $this->data["username"] . " already exists.");
         }
     }
 
@@ -90,7 +92,7 @@ class User extends Model
     {
         if(!empty($this->load("users", "email", $this->data["email"])))
         {
-            $this->makeError("exists", "Username ". $this->data["email"] . " already exists.");
+            $this->makeError("emailexists", "Username ". $this->data["email"] . " already exists.");
         }
     }
 

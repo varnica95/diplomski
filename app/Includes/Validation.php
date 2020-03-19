@@ -30,17 +30,21 @@ class Validation
         {
             if(empty($value))
             {
-                $this->makeError("empty", "Filed " . $key . " is empty.");
+                $this->makeError("empty", "Fields cannot be empty.");
             }
         }
     }
 
     public function name()
     {
-        if (!preg_match("/^([a-zA-Z' ]+)$/", $this->_data["firstname"]) ||
-            !preg_match("/^([a-zA-Z' ]+)$/", $this->_data["lastname"]))
+        if (!preg_match("/^([a-zA-Z' ]+)$/", $this->_data["firstname"]))
         {
-            $this->makeError("name", "Name ". $this->_data["firstname"] . " " . $this->_data["lastname"] . " is not valid.");
+            $this->makeError("firstname", "Name ". $this->_data["firstname"] . " is not valid.");
+        }
+
+        if (!preg_match("/^([a-zA-Z' ]+)$/", $this->_data["lastname"]))
+        {
+            $this->makeError("lastname", "Lastname ". $this->_data["lastname"] . " is not valid.");
         }
     }
 
@@ -72,15 +76,15 @@ class Validation
         }
         else if(!preg_match("#[0-9]+#", $this->_data["password"]))
         {
-            $this->addError('password','Password must contain a number.');
+            $this->makeError('password','Password must contain a number.');
         }
         else if(!preg_match("#[A-Z]+#", $this->_data["password"]))
         {
-            $this->addError('password', 'Password must contain a capital number.');
+            $this->makeError('password', 'Password must contain a capital number.');
         }
         else if ($this->_data["password"] !== $this->_data["password-again"])
         {
-            $this->addError('password','Passwords do not match.');
+            $this->makeError('password','Passwords do not match.');
         }
     }
 

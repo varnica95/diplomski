@@ -6,16 +6,23 @@
 </head>
 
 <body>
-
     <nav>
+        <?php if(isset($userlogged)):?>
+        <div class="welcome"><?php echo $userlogged; ?></div>
+        <?php endif;?>
         <ul>
+            <?php if(!\App\Includes\Session::get("id")):?>
             <li><a class="nav_button" href="/home/">Home</a></li>
             <li><a class="nav_button" href="/login/">Login</a></li>
             <li><a class="nav_button" href="/registration/">Register</a></li>
+            <?php endif;?>
+            <?php if(\App\Includes\Session::get("id")):?>
+                <li><a class="nav_button" href="/home/">Home</a></li>
             <li><a class="nav_button" href="/home/">Generate</a></li>
             <li><a class="nav_button" href="/home/">Visual</a></li>
             <li><a class="nav_button" href="/home/">Account</a></li>
             <li><a class="nav_button" href="/login/logout">Log out</a></li>
+            <?php endif;?>
             </div>
         </ul>
     </nav>

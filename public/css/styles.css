@@ -3,6 +3,12 @@ body {
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
 /* navigation */
+.welcome {
+    margin: -50px auto 0;
+    margin-left: 2.5%;
+    color: #e2e2e2;
+    font-size: 32px;
+}
 nav {
     border-left: 1px solid #e2e2e2;
     border-top: 1px solid #e2e2e2;
@@ -95,6 +101,7 @@ a, ul{
     color: #e2e2e2;
     margin-left: 5%;
 }
+
 /* login// */
 
 /* registration */
@@ -104,5 +111,35 @@ input[type="date"]{
 input[type="date"]::-webkit-inner-spin-button{
     display: none;
     -webkit-appearance: none;
+}
+
+#error{
+    border: 3px solid #EA4335;
+    animation: fadeinerror 1s;
+}
+
+#error-label{
+    color: #EA4335;
+    margin-left: 25%;
+    animation: fadeinerrorlabel 0.7s;
+}
+
+#success {
+    background-color: #405d27;
+    animation: fadeinsuccess 0.7s;
+}
+@keyframes fadeinsuccess {
+   from{background-color: #1a1a1a;}
+    to{background-color: #405d27;}
+}
+
+@keyframes fadeinerror {
+    from{border: 3px solid #ccc;}
+    to{border: 3px solid #EA4335;}
+}
+
+@keyframes fadeinerrorlabel {
+    from{opacity: 0%;}
+    to{opacity: 100%;}
 }
 /* registration// */
