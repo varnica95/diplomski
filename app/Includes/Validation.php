@@ -30,6 +30,9 @@ class Validation
         {
             if(empty($value))
             {
+                if($key === "gender")
+                    $this->makeError("gender", "Fields cannot be empty.");
+
                 $this->makeError("empty", "Fields cannot be empty.");
             }
         }

@@ -26,7 +26,7 @@ class Login extends Controller
                 $remember = false;
 
             $user = new User($_POST);
-            var_dump($user->userlogin($remember));
+
             if (!$user->userlogin($remember)) {
                 echo $this->view->render('Login/index.phtml', [
                     'errors' => $user->getError(),

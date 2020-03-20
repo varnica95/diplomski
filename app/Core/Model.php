@@ -23,7 +23,7 @@ class Model
             $this->connection = Database::getInstance()->getConnection();
 
             $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
-            var_dump($sql);
+
             $row = $this->connection->query($sql);
             $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
 
@@ -39,7 +39,7 @@ class Model
             self::$static_connection = Database::getInstance()->getConnection();
 
             $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
-            var_dump($sql);
+
             $row = self::$static_connection->query($sql);
             $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
 
