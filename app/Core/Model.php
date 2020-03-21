@@ -151,4 +151,22 @@ class Model
             $e->getMessage();
         }
     }
+
+    protected function getNoteFromTable($value)
+    {
+        try {
+            $this->connection = Database::getInstance()->getConnection();
+
+            $sql = "SELECT note FROM parameters_notes WHERE parameter_class = '{$value}'";
+
+            $row = $this->connection->query($sql);
+
+            $row->setFetchMode(PDO::FETCH_ASSOC);
+
+            return $row->fetch();
+        }catch (\PDOException $e)
+        {
+            $e->getMessage();
+        }
+    }
 }

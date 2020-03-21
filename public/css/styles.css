@@ -104,8 +104,6 @@ a, ul{
 /* login// */
 
 /* registration */
-input[type="date"]{
-}
 
 input[type="date"]::-webkit-inner-spin-button{
     display: none;
@@ -142,3 +140,43 @@ input[type="date"]::-webkit-inner-spin-button{
     to{opacity: 100%;}
 }
 /* registration// */
+
+/* check */
+
+.check-form {
+    position: absolute;
+    border-left: 1px solid #e2e2e2;
+    border-top: 1px solid #e2e2e2;
+    max-width: 30%;
+    height: 370px;
+    margin: -370px auto 0;
+    margin-left: 40%;
+}
+
+.check-form input{
+    margin-left: 2%;
+    margin-top: 5%;
+    width: 15%;
+    height: 30px;
+    padding: 0px 5%;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+#check-label{
+    color: #e2e2e2;
+    margin: 10px 5%;
+    top: 10%;
+    font-size: 20px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* check// */

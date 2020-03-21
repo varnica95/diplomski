@@ -1,0 +1,57 @@
+<?php require '../app/Views/header.phtml'; ?>
+
+<div class = "check-form">
+    <form class="signup-form" action="/parameters/submit" method="POST">
+        <label id="check-label">Blood pressure</label>
+        <input <?php if(isset($errors["bp-sys"]) || isset($errors["bp-sys-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="bp-sys" placeholder="S [hhMG]">
+        <input <?php if(isset($errors["bp-dia"]) || isset($errors["bp-dia-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="bp-dia" placeholder="D [hhMg]"><br>
+        <?php if(isset($errors["bp-sys-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["bp-sys-notnumber"];?></label><br> <?php endif;?>
+        <?php if(isset($errors["bp-dia-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["bp-dia-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Specific gravity</label>
+        <input <?php if(isset($errors["sg"]) || isset($errors["sg-notfloat"])) echo 'id="error"'; ?> step="any"  type="number" name="sg" placeholder="1.010"><br>
+        <?php if(isset($errors["sg-notfloat"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["sg-notfloat"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Sugar</label>
+        <input <?php if(isset($errors["su"]) || isset($errors["su-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="su" placeholder="2.8 [mmol/L]"><br>
+        <?php if(isset($errors["su-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["su-notnumber"];?></label><br> <?php endif;?>
+
+
+        <label id="check-label">Red blood cells</label>
+        <input <?php if(isset($errors["rbc"]) || isset($errors["bp-rbc-notnumber"])) echo 'id="error"'; ?>  step="any"  type="number" name="rbc" placeholder="5x10^12 [1/L]"><br>
+        <?php if(isset($errors["rbc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["rbc-notnumber"];?></label><br> <?php endif;?>
+
+
+        <label id="check-label">Blood urea</label>
+        <input <?php if(isset($errors["bu"]) || isset($errors["bu-notnumber"])) echo 'id="error"'; ?> step="any"   type="number" name="bu" placeholder="5 [mmol/L]"><br>
+        <?php if(isset($errors["bu-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["bu-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Serum Creatinine</label>
+        <input <?php if(isset($errors["sc"]) || isset($errors["sc-notnumber"])) echo 'id="error"'; ?>  step="any"  type="number" name="sc" placeholder="70 [umol/L]"><br>
+        <?php if(isset($errors["sc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["sc-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Sodium</label>
+        <input <?php if(isset($errors["sod"]) || isset($errors["sod-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="sod" placeholder="5 [mmol/L]"><br>
+        <?php if(isset($errors["sod-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["sod-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Potassium</label>
+        <input <?php if(isset($errors["pot"]) || isset($errors["pot-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="pot" placeholder="5 [mmol/L]"><br>
+        <?php if(isset($errors["pot-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["pot-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Haemoglobin</label>
+        <input <?php if(isset($errors["hemo"]) || isset($errors["hemo-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="hemo" placeholder="15 [g/dL]"><br>
+        <?php if(isset($errors["hemo-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["hemo-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">White Blood Cell count</label>
+        <input <?php if(isset($errors["wbcc"]) || isset($errors["wbcc-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="wbcc" placeholder="4500 [wbcc/mL]"><br>
+        <?php if(isset($errors["wbcc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["wbcc-notnumber"];?></label><br> <?php endif;?>
+
+        <label id="check-label">Red Blood Cell count</label>
+        <input <?php if(isset($errors["rbcc"]) || isset($errors["rbcc-notnumber"])) echo 'id="error"'; ?> step="any" type="number" name="rbcc" placeholder="4 [wbcc/HPF]"><br>
+        <?php if(isset($errors["rbcc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["rbcc-notnumber"];?></label><br> <?php endif;?>
+
+        <button type="submit" name="check-submit">Submit</button>
+    </form>
+</div>
+
+<?php require '../app/Views/footer.phtml' ?>
