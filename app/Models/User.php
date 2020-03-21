@@ -71,6 +71,7 @@ class User extends Model
                 }
                 Session::set('firstname', $loggeduser->data['firstname']);
                 Session::set('lastname', $loggeduser->data['lastname']);
+                Session::set('gender', $loggeduser->data['gender']);
 
                 return true;
             }
