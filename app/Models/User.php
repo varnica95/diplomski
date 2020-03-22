@@ -58,7 +58,6 @@ class User extends Model
 
                     if(!$hashCheck)
                     {
-                        echo "tu sam";
                         $this->insert("rememberme", [
                             'user_id' => $loggeduser->data["id"],
                             'hash' => $hash

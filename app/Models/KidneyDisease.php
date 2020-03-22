@@ -27,6 +27,7 @@ class KidneyDisease extends Model
     {
 
         $systolic = (int)$this->data["bp-sys"];
+        $diastolic = (int)$this->data["bp-dia"];
         $hypertension = $this->bloodPressureHandler($this->data["bp-sys"], $this->data["bp-dia"]);
 
         $sg = round($this->data["sg"], 4);
@@ -57,7 +58,7 @@ class KidneyDisease extends Model
         $rbcc = round($this->data["rbcc"], 3);
         $this->redCellsCount($this->data["rbcc"]);
 
-        $this->checkDiseaseAzure([$systolic,
+        $ckd = $this->checkDiseaseAzure([$systolic,
                                     $sg,
                                     $su,
                                     $rbc,
@@ -70,6 +71,12 @@ class KidneyDisease extends Model
                                     $rbcc,
                                     $hypertension
                               ]);
+
+       $data = [];
+       array_push($data, $systolic, $diastolic, $sg, $su, $rbc, $bu, $sc, $sod, $pot, $hemo, $wbcc, $rbcc, $ckd,
+       array_values($this->getNotes()));
+
+      // $this->insert("user_table", $data);
     }
 
     protected function getNote($name)
@@ -141,6 +148,8 @@ class KidneyDisease extends Model
         
         $this->checkIfPositive($class, $precision);
        // echo json_decode($response, true);
+
+        return $class;
     }
 
     private function checkIfPositive($class, $precision)

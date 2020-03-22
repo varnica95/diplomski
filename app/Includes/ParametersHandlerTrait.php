@@ -92,7 +92,7 @@ trait ParametersHandlerTrait
         {
             $tempereryNote = $this->getNote('su_high');
 
-            $this->writeNote('sg_high', $tempereryNote["note"]);
+            $this->writeNote('su_high', $tempereryNote["note"]);
 
             return 5;
         }
@@ -100,7 +100,7 @@ trait ParametersHandlerTrait
         {
             $tempereryNote = $this->getNote('su_high');
 
-            $this->writeNote('sg_high', $tempereryNote["note"]);
+            $this->writeNote('su_high', $tempereryNote["note"]);
 
             return 4;
         }
@@ -108,7 +108,7 @@ trait ParametersHandlerTrait
         {
             $tempereryNote = $this->getNote('su_high');
 
-            $this->writeNote('sg_high', $tempereryNote["note"]);
+            $this->writeNote('su_high', $tempereryNote["note"]);
 
             return 3;
         }
@@ -118,14 +118,14 @@ trait ParametersHandlerTrait
            {
                $tempereryNote = $this->getNote('su_high');
 
-               $this->writeNote('sg_high', $tempereryNote["note"]);
+               $this->writeNote('su_high', $tempereryNote["note"]);
 
                return 2;
            }
            else{
                $tempereryNote = $this->getNote('su_normal');
 
-               $this->writeNote('sg_normal', $tempereryNote["note"]);
+               $this->writeNote('su_normal', $tempereryNote["note"]);
 
                return 2;
            }
@@ -134,7 +134,7 @@ trait ParametersHandlerTrait
         {
             $tempereryNote = $this->getNote('su_normal');
 
-            $this->writeNote('sg_normal', $tempereryNote["note"]);
+            $this->writeNote('su_normal', $tempereryNote["note"]);
 
             return 1;
         }
@@ -142,7 +142,7 @@ trait ParametersHandlerTrait
         {
             $tempereryNote = $this->getNote('su_low');
 
-            $this->writeNote('sg_low', $tempereryNote["note"]);
+            $this->writeNote('su_low', $tempereryNote["note"]);
 
             return 0;
         }

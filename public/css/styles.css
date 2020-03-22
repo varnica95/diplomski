@@ -147,7 +147,7 @@ input[type="date"]::-webkit-inner-spin-button{
     position: absolute;
     border-left: 1px solid #e2e2e2;
     border-top: 1px solid #e2e2e2;
-    max-width: 30%;
+    max-width: 40%;
     height: 370px;
     margin: -370px auto 0;
     margin-left: 40%;
