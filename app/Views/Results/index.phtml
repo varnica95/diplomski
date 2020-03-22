@@ -1,0 +1,39 @@
+<?php require '../app/Views/header.phtml'; ?>
+
+<div class="results-table">
+
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name" scope="col">ID</th>
+            <th class="col-name" scope="col">PARAMETERS</th>
+            <th class="col-name" scope="col">CREATED</th>
+            <th class="col-name" scope="col">ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+            if(isset($row)):
+                foreach ($row as $key => $value):
+        ?>
+            <tr <?php if($value["ckd"] == 1) {
+                echo 'id="pos"';
+            } else {
+                echo 'id="neg"';
+            }  ?>>
+                <td><?php echo $key += 1; ?></td>
+                <td><?php echo $value["ckd_note"]; ?></td>
+                <td><?php echo $value["created"]; ?></td>
+                <td>
+                    <a href="/result/details/<?php echo $value["id"]; ?>">Details</a>
+                    <a>Delete</a>
+                </td>
+            </tr>
+        <?php endforeach;
+        endif; ?>
+        </tbody>
+    </table>
+
+</div>
+
+<?php require '../app/Views/footer.phtml' ?>

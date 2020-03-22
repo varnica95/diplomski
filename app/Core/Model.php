@@ -18,17 +18,43 @@ class Model
         $this->data[$name] = $value;
     }
 
-    protected function load($table, $field, $value)
+    protected function loadUserResults($table = "user_table", $field, $value)
     {
         try{
             $this->connection = Database::getInstance()->getConnection();
 
-            $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
+            $sql = "SELECT id, ckd, ckd_note, created FROM {$table} WHERE {$field} = '{$value}' ORDER BY created DESC";
 
             $row = $this->connection->query($sql);
-            $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+            $row->setFetchMode(PDO::FETCH_ASSOC);
 
-            return $row->fetch();
+            return $row->fetchAll();
+        }catch (\PDOException $e)
+        {
+            $e->getMessage();
+        }
+    }
+
+    protected function load($table, $field, $value)
+    {
+        try{
+            $this->connection = Database::getInstance()->getConnection();
+            if($table === "user_table") {
+                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
+
+                $row = $this->connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_ASSOC);
+
+                return $row->fetchAll();
+            }
+            else{
+                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
+
+                $row = $this->connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+
+                return $row->fetch();
+            }
         }catch (\PDOException $e) {
             $e->getMessage();
         }
@@ -37,14 +63,23 @@ class Model
     protected static function static_load($table, $field, $value)
     {
         try{
-            self::$static_connection = Database::getInstance()->getConnection();
+            self::$static_connection= Database::getInstance()->getConnection();
+            if($table === "user_table") {
+                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
 
-            $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
+                $row = self::$static_connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_ASSOC);
 
-            $row = self::$static_connection->query($sql);
-            $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+                return $row->fetchAll();
+            }
+            else{
+                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
 
-            return $row->fetch();
+                $row = self::$static_connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+
+                return $row->fetch();
+            }
         }catch (\PDOException $e) {
             $e->getMessage();
         }
@@ -97,7 +132,6 @@ class Model
                 $sql = "INSERT INTO user_table (user_id, bp_sys, bp_dia, sg, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, bp_note, sg_note, su_note, rbc_note, bu_note, sc_note, sod_note, pot_note, hemo_note, wbcc_note, rbcc_note, ckd_note, created) 
                         VALUES (:user_id, :bp_sys, :bp_dia, :sg, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :bp_note, :sg_note, :su_note, :rbc_note, :bu_note, :sc_note, :sod_note, :pot_note, :hemo_note, :wbcc_note, :rbcc_note, :ckd_note, :created)";
                 $stmt = $this->connection->prepare($sql);
-                var_dump($data);
                 $stmt->bindValue(":user_id", Session::get("id"));
                 $stmt->bindValue(":bp_sys", $data[0]);
                 $stmt->bindValue(":bp_dia",  $data[1]);
@@ -123,7 +157,7 @@ class Model
                 $stmt->bindValue(":hemo_note",  $data[13][8]);
                 $stmt->bindValue(":wbcc_note",  $data[13][9]);
                 $stmt->bindValue(":rbcc_note",  $data[13][10]);
-                $stmt->bindValue(":ckd_note",  $data[13][10]);
+                $stmt->bindValue(":ckd_note",  $data[13][11]);
                 $stmt->bindValue(':created', date("Y-m-d H:i:s"));
             }
 

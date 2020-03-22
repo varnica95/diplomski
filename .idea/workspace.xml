@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Controllers/Result.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Parameters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Parameters.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Results.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Includes/ParametersHandlerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Includes/ParametersHandlerTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/KidneyDisease.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/KidneyDisease.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Check/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Check/index.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Views/header.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/header.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +43,19 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="diplomski: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="diplomski: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user_table: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -88,7 +102,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@4f0b752c" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@5116a5a8" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -116,6 +130,7 @@
       <workItem from="1584704176483" duration="25159000" />
       <workItem from="1584789881200" duration="1276000" />
       <workItem from="1584810438790" duration="13485000" />
+      <workItem from="1584871767537" duration="15391000" />
     </task>
     <servers />
   </component>
@@ -123,18 +138,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584369067573">
+    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584890520381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584369067573" />
+    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584890520381" />
     <state x="761" y="207" width="387" height="619" key="#com.intellij.ide.util.MemberChooser" timestamp="1584817887310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="761" y="207" width="387" height="619" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584817887310" />
-    <state x="619" y="0" width="662" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584713406323">
+    <state x="619" y="0" width="662" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584876889487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="619" y="0" width="662" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584713406323" />
+    <state x="619" y="0" width="662" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584876889487" />
     <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584383367976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -143,22 +158,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="277" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584548714896" />
-    <state width="1603" height="2" key="GridCell.Tab.0.bottom" timestamp="1584826216491">
+    <state width="1603" height="334" key="GridCell.Tab.0.bottom" timestamp="1584890551206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="2" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584826216491" />
-    <state width="1603" height="2" key="GridCell.Tab.0.center" timestamp="1584826216490">
+    <state width="1603" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551206" />
+    <state width="1603" height="334" key="GridCell.Tab.0.center" timestamp="1584890551206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="2" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584826216490" />
-    <state width="1603" height="2" key="GridCell.Tab.0.left" timestamp="1584826216490">
+    <state width="1603" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551206" />
+    <state width="1603" height="334" key="GridCell.Tab.0.left" timestamp="1584890551205">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="2" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584826216490" />
-    <state width="1603" height="2" key="GridCell.Tab.0.right" timestamp="1584826216491">
+    <state width="1603" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551205" />
+    <state width="1603" height="334" key="GridCell.Tab.0.right" timestamp="1584890551206">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="2" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584826216491" />
+    <state width="1603" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551206" />
     <state width="939" height="341" key="GridCell.Tab.1.bottom" timestamp="1584391325052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -191,10 +206,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="939" height="341" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584391325053" />
-    <state x="751" y="338" width="457" height="356" key="NewPhpClassDialog" timestamp="1584871788017">
+    <state x="751" y="338" width="457" height="356" key="NewPhpClassDialog" timestamp="1584876347162">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="751" y="338" width="457" height="356" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584871788017" />
+    <state x="751" y="338" width="457" height="356" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584876347162" />
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog" timestamp="1584730380918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -203,10 +218,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="801" y="394" width="327" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1584826215458" />
-    <state x="624" y="238" key="run.anything.popup" timestamp="1584822571908">
+    <state x="624" y="238" key="run.anything.popup" timestamp="1584891968354">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="624" y="238" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584822571908" />
+    <state x="624" y="238" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584891968354" />
     <state x="623" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1584707641298">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

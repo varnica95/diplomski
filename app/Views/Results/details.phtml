@@ -1,0 +1,85 @@
+<?php require '../app/Views/header.phtml';
+?>
+
+<div class="results-table">
+
+    <table>
+        <thead>
+        <tr>
+            <th class="col-name1" scope="col">PARAMETER</th>
+            <th class="col-name1" scope="col">VALUES</th>
+            <th class="col-name1" scope="col">NOTE</th>
+        </tr>
+        </thead>
+        <tbody>
+                <tr class="row">
+                    <td>BLOOD PRESSURE</td>
+                    <td><?php echo "Systolic:" . $row[0]["bp_sys"] . " mmHg <br>" . "Diastolic:" . $row[0]["bp_dia"] . " mmHg"; ?></td>
+                    <td><?php echo $row[0]["bp_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>SPECIFIC GRAVITY</td>
+                    <td><?php echo $row[0]["sg"]; ?></td>
+                   <td><?php echo $row[0]["sg_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>SUGAR</td>
+                    <td><?php echo $row[0]["su"] . " mmol/L"; ?></td>
+                    <td><?php echo $row[0]["su_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>RED BLOOD CELLS</td>
+                    <td><?php echo $row[0]["rbc"] . " x10^12/L"; ?></td>
+                    <td><?php echo $row[0]["rbc_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>BLOOD UREA</td>
+                    <td><?php echo $row[0]["bu"] . " mmol/L"; ?></td>
+                    <td><?php echo $row[0]["bu_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>SERUM CREATININE</td>
+                    <td><?php echo $row[0]["sc"] . " mmol/L"; ?></td>
+                    <td><?php echo $row[0]["sc_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>SODIUM</td>
+                    <td><?php echo $row[0]["sod"] . " mmol/L"; ?></td>
+                    <td><?php echo $row[0]["sod_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>POTASSIUM</td>
+                    <td><?php echo $row[0]["pot"] . " mmol/L"; ?></td>
+                    <td><?php echo $row[0]["pot_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>HEMOGLOBIN</td>
+                    <td><?php echo $row[0]["hemo"] . " g/dL"; ?></td>
+                    <td><?php echo $row[0]["hemo_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>WHITE BLOOD CELLS IN URINE</td>
+                    <td><?php echo $row[0]["wbcc"] . " wbc/mL"; ?></td>
+                    <td><?php echo $row[0]["wbcc_note"]; ?></td>
+                </tr>
+                <tr class="row">
+                    <td>RED BLOOD CELLS IN URINE</td>
+                    <td><?php echo $row[0]["rbcc"] . " rbc/HPF"; ?></td>
+                    <td><?php echo $row[0]["rbcc_note"]; ?></td>
+                </tr>
+                <tr  <tr <?php if($row[0]["ckd"] == 1) {
+                    echo 'id="pos"';
+                } else {
+                    echo 'id="neg"';
+                }  ?>>
+                    <td>RESULT</td>
+                    <td>CHRONIC KIDNEY DISEASE</td>
+                    <td><?php echo $row[0]["ckd_note"]; ?></td>
+                </tr>
+        </tbody>
+    </table>
+    <br>
+
+</div>
+
+<?php require '../app/Views/footer.phtml' ?>

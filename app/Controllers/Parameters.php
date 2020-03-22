@@ -21,7 +21,7 @@ class Parameters extends Controller
             $validation = new ParametersValidation($_POST);
             $test = new KidneyDisease($_POST);
             $test->generateDisease();
-            var_dump($test->getNotes());
+
             if(!$validation->isPassed())
             {
                 echo $this->view->render('Check/index.phtml', [
@@ -29,7 +29,9 @@ class Parameters extends Controller
                 ]);
             }
             else {
-
+                echo $this->view->render('Check/index.phtml', [
+                    'success' => "Submited"
+                ]);
             }
         }
     }

@@ -50,7 +50,13 @@
         <input <?php if(isset($errors["rbcc"]) || isset($errors["rbcc-notnumber"])) echo 'id="error"'; ?> step="any" type="number" name="rbcc" placeholder="Enter value"><br>
         <?php if(isset($errors["rbcc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["rbcc-notnumber"];?></label><br> <?php endif;?>
 
-        <button type="submit" name="check-submit">Submit</button>
+        <?php if(isset($success)):?>
+            <button id="success" type="submit" name="check-submit">&#10004;Submited</button><br>
+            <div class="notmember"><p>You can check your results <a href="/result/index">here</a>.</p></div>
+        <?php else:?>
+            <button type="submit" name="check-submit">Submit</button>
+        <?php endif; ?>
+
     </form>
 </div>
 

@@ -76,7 +76,7 @@ class KidneyDisease extends Model
        array_push($data, $systolic, $diastolic, $sg, $su, $rbc, $bu, $sc, $sod, $pot, $hemo, $wbcc, $rbcc, $ckd,
        array_values($this->getNotes()));
 
-      // $this->insert("user_table", $data);
+       $this->insert("user_table", $data);
     }
 
     protected function getNote($name)
@@ -159,7 +159,7 @@ class KidneyDisease extends Model
             $this->writeNote("ckd", "We are ". $precision*100 ."% sure that you have Chronic Kidney Disease.");
         }
         else{
-            $this->writeNote("nockd", "We are ". $precision*100 ."% sure that you do not have Chronic Kidney Disease.");
+            $this->writeNote("ckd", "We are ". $precision*100 ."% sure that you do not have Chronic Kidney Disease.");
         }
     }
 }

@@ -147,10 +147,11 @@ input[type="date"]::-webkit-inner-spin-button{
     position: absolute;
     border-left: 1px solid #e2e2e2;
     border-top: 1px solid #e2e2e2;
-    max-width: 40%;
+    max-width: 70%;
+    width: 40%;
     height: 370px;
-    margin: -370px auto 0;
-    margin-left: 40%;
+    margin: -500px auto 0;
+    margin-left: 45%;
 }
 
 .check-form input{
