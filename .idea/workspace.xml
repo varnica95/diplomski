@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Controllers/Result.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Parameters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Parameters.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Results.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Includes/ParametersHandlerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Includes/ParametersHandlerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Includes/Validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Includes/Validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/KidneyDisease.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/KidneyDisease.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Views/Check/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Check/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Login/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Login/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Register/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Register/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Results/details.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Results/details.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Views/header.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/header.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,17 +99,7 @@
         <serviceView>
           <option name="contentProportion" value="0.13250406" />
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@5116a5a8" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -130,7 +125,13 @@
       <workItem from="1584704176483" duration="25159000" />
       <workItem from="1584789881200" duration="1276000" />
       <workItem from="1584810438790" duration="13485000" />
-      <workItem from="1584871767537" duration="15391000" />
+      <workItem from="1584871767537" duration="15681000" />
+      <workItem from="1584909973119" duration="45000" />
+      <workItem from="1586181088277" duration="599000" />
+      <workItem from="1588613230230" duration="1505000" />
+      <workItem from="1588666777280" duration="477000" />
+      <workItem from="1588667646002" duration="29108000" />
+      <workItem from="1589265260393" duration="15670000" />
     </task>
     <servers />
   </component>
@@ -138,10 +139,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584890520381">
+    <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1588668149156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584890520381" />
+    <state x="555" y="180" width="800" height="672" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1588668149156" />
+    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588668479108">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="180" width="800" height="672" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588668479108" />
     <state x="761" y="207" width="387" height="619" key="#com.intellij.ide.util.MemberChooser" timestamp="1584817887310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,22 +163,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="277" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584548714896" />
-    <state width="1603" height="334" key="GridCell.Tab.0.bottom" timestamp="1584890551206">
+    <state width="1603" height="334" key="GridCell.Tab.0.bottom" timestamp="1588668654119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551206" />
-    <state width="1603" height="334" key="GridCell.Tab.0.center" timestamp="1584890551206">
+    <state width="1603" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588668654119" />
+    <state width="1603" height="334" key="GridCell.Tab.0.center" timestamp="1588668654118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551206" />
-    <state width="1603" height="334" key="GridCell.Tab.0.left" timestamp="1584890551205">
+    <state width="1603" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588668654118" />
+    <state width="1603" height="334" key="GridCell.Tab.0.left" timestamp="1588668654117">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551205" />
-    <state width="1603" height="334" key="GridCell.Tab.0.right" timestamp="1584890551206">
+    <state width="1603" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588668654117" />
+    <state width="1603" height="334" key="GridCell.Tab.0.right" timestamp="1588668654119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1603" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584890551206" />
+    <state width="1603" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588668654119" />
     <state width="939" height="341" key="GridCell.Tab.1.bottom" timestamp="1584391325052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -218,6 +223,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="801" y="394" width="327" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1584826215458" />
+    <state x="746" y="394" width="417" height="244" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1588668572133">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="746" y="394" width="417" height="244" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588668572133" />
+    <state x="757" y="439" width="395" height="155" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589230850154">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="439" width="395" height="155" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589230850154" />
     <state x="624" y="238" key="run.anything.popup" timestamp="1584891968354">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -33,7 +33,7 @@ class Login extends Controller
                 ]);
             } else {
                 echo $this->view->render('Home/index.phtml', [
-                    'userlogged' => "Welcome, ". Session::get("firstname") . " " . Session::get("lastname") ."."
+                    'userlogged' => "Welcome, ". Session::get("firstname") . " " . Session::get("lastname")
                 ]);
             }
         }

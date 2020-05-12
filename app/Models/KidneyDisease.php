@@ -33,6 +33,8 @@ class KidneyDisease extends Model
         $sg = round($this->data["sg"], 4);
         $this->specificGravity($sg);
 
+        $al = $this->albumin($this->data["al"]);
+
         $su = $this->sugar($this->data["su"]);
 
         $rbc = $this->redCells($this->data["rbc"]);
@@ -60,6 +62,7 @@ class KidneyDisease extends Model
 
         $ckd = $this->checkDiseaseAzure([$systolic,
                                     $sg,
+                                    $al,
                                     $su,
                                     $rbc,
                                     $bu,
@@ -73,9 +76,8 @@ class KidneyDisease extends Model
                               ]);
 
        $data = [];
-       array_push($data, $systolic, $diastolic, $sg, $su, $rbc, $bu, $sc, $sod, $pot, $hemo, $wbcc, $rbcc, $ckd,
+       array_push($data, $systolic, $diastolic, $sg, $this->data["al"], $this->data["su"], $this->data["rbc"], $bu, $sc, $sod, $pot, $hemo, $wbcc, $rbcc, $ckd,
        array_values($this->getNotes()));
-
        $this->insert("user_table", $data);
     }
 
@@ -101,7 +103,8 @@ class KidneyDisease extends Model
              \"input1\": {\n   
                 \"ColumnNames\": [\n  
                       \"Bp\",\n   
-                      \"Sg\",\n    
+                      \"Sg\",\n   
+                      \"Al\",\n  
                       \"Su\",\n   
                       \"Rbc\",\n    
                       \"Bu\",\n   
@@ -125,7 +128,8 @@ class KidneyDisease extends Model
                         \"". $data[8] ."\",\n    
                         \"". $data[9] ."\",\n       
                         \"". $data[10] ."\",\n   
-                        \"". $data[11] ."\"\n   
+                        \"". $data[11] ."\"\n  
+                        \"". $data[12] ."\"\n  
                         ]\n   
                         ]\n   
                         }\n 
@@ -134,7 +138,8 @@ class KidneyDisease extends Model
                            }",
             CURLOPT_HTTPHEADER => array(
                 "Content-Type: application/json",
-                "Authorization: Bearer Qs/0gDydgJGrELzauNxO90KLo0Fu4bGNwFJV5YJwDtvgQ/87NTBDx5amukGmte3s+gxib/cyLrnRKHOrAmHSzA=="
+                "Authorization: Bearer Qs/0gDydgJGrELzauNxO90KLo0Fu4bGNwFJV5YJwDtvgQ/87NTBDx5amukGmte3s+gxib/cyLrnRKHOrAmHSzA==",
+                "Content-Type: text/plain"
             ),
         ));
 
@@ -142,12 +147,10 @@ class KidneyDisease extends Model
 
         curl_close($curl);
         $result = json_decode($response, true);
+        $class = (int)$result["Results"]["output1"]["value"]["Values"][0][13];
+        $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][14];
 
-        $class = (int)$result["Results"]["output1"]["value"]["Values"][0][12];
-        $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][13];
-        
         $this->checkIfPositive($class, $precision);
-       // echo json_decode($response, true);
 
         return $class;
     }

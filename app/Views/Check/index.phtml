@@ -1,63 +1,352 @@
 <?php require '../app/Views/header.phtml'; ?>
 
-<div class = "check-form">
+<div class="check-form">
     <form class="signup-form" action="/parameters/submit" method="POST">
-        <label id="check-label">Blood pressure [hhMG]</label>
-        <input <?php if(isset($errors["bp-sys"]) || isset($errors["bp-sys-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="bp-sys" placeholder="Enter value">
-        <input <?php if(isset($errors["bp-dia"]) || isset($errors["bp-dia-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="bp-dia" placeholder="Enter value"><br>
-        <?php if(isset($errors["bp-sys-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["bp-sys-notnumber"];?></label><br> <?php endif;?>
-        <?php if(isset($errors["bp-dia-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["bp-dia-notnumber"];?></label><br> <?php endif;?>
+        <input id='step2' type='checkbox'>
+        <input id='step3' type='checkbox'>
+        <input id='step4' type='checkbox'>
+        <input id='step5' type='checkbox'>
+        <input id='step6' type='checkbox'>
+        <input id='step7' type='checkbox'>
+        <input id='step8' type='checkbox'>
+        <input id='step9' type='checkbox'>
+        <input id='step10' type='checkbox'>
+        <input id='step11' type='checkbox'>
+        <input id='step12' type='checkbox'>
+        <input id='step13' type='checkbox'>
 
-        <label id="check-label">Specific gravity</label>
-        <input <?php if(isset($errors["sg"]) || isset($errors["sg-notfloat"])) echo 'id="error"'; ?> step="any"  type="number" name="sg" placeholder="1.010"><br>
-        <?php if(isset($errors["sg-notfloat"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["sg-notfloat"];?></label><br> <?php endif;?>
+        <div id="p1">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Korak 1. Arterijska hipertenzija</h3>
+                </div>
+                <input <?php if (isset($errors["bp-sys"]) || isset($errors["bp-sys-notnumber"])) echo 'id="error"'; ?>
+                        step="any" type="number" name="bp-sys" placeholder="Enter value">
+                <input <?php if (isset($errors["bp-dia"]) || isset($errors["bp-dia-notnumber"])) echo 'id="error"'; ?>
+                        step="any" type="number" name="bp-dia" placeholder="Enter value"><br>
+                <?php if (isset($errors["bp-sys-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["bp-sys-notnumber"]; ?></label><br> <?php endif; ?>
+                <?php if (isset($errors["bp-dia-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["bp-dia-notnumber"]; ?></label><br> <?php endif; ?>
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step2' class="continue">
+                        <div>&#187;</div>
+                    </label>
+                </div>
+            </div>
+        </div>
 
-        <label id="check-label">Sugar [mmol/L]</label>
-        <input <?php if(isset($errors["su"]) || isset($errors["su-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="su" placeholder="Enter value"><br>
-        <?php if(isset($errors["su-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["su-notnumber"];?></label><br> <?php endif;?>
+        <div id="p2">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 2</h3>
+                </div>
+
+                <input <?php if (isset($errors["sg"]) || isset($errors["sg-notfloat"])) echo 'id="error"'; ?> step="any"
+                                                                                                              type="number"
+                                                                                                              name="sg"
+                                                                                                              placeholder="1.010"><br>
+                <?php if (isset($errors["sg-notfloat"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["sg-notfloat"]; ?></label><br> <?php endif; ?>
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step2' id="back-step2" class="back">
+                        <div>&#171;</div>
+                    </label>
 
 
-        <label id="check-label">Red blood cells [10^12/L]</label>
-        <input <?php if(isset($errors["rbc"]) || isset($errors["bp-rbc-notnumber"])) echo 'id="error"'; ?>  step="any"  type="number" name="rbc" placeholder="Enter value"><br>
-        <?php if(isset($errors["rbc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["rbc-notnumber"];?></label><br> <?php endif;?>
+                    <label for='step3' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p3">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 3</h3>
+                </div>
+
+                <input <?php if (isset($errors["su"]) || isset($errors["su-notnumber"])) echo 'id="error"'; ?>
+                        step="any"
+                        type="number"
+                        name="su"
+                        placeholder="Enter value"><br>
+                <?php if (isset($errors["su-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["su-notnumber"]; ?></label><br> <?php endif; ?>
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step3' class="back">
+                        <div>&#171;</div>
+                    </label>
 
 
-        <label id="check-label">Blood urea [mmol/L]</label>
-        <input <?php if(isset($errors["bu"]) || isset($errors["bu-notnumber"])) echo 'id="error"'; ?> step="any"   type="number" name="bu" placeholder="Enter value"><br>
-        <?php if(isset($errors["bu-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["bu-notnumber"];?></label><br> <?php endif;?>
+                    <label for='step4' class="continue">
+                        <div>&#187;</div>
+                    </label>
 
-        <label id="check-label">Serum Creatinine [umol/L]</label>
-        <input <?php if(isset($errors["sc"]) || isset($errors["sc-notnumber"])) echo 'id="error"'; ?>  step="any"  type="number" name="sc" placeholder="Enter value"><br>
-        <?php if(isset($errors["sc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["sc-notnumber"];?></label><br> <?php endif;?>
+                </div>
+            </div>
+        </div>
 
-        <label id="check-label">Sodium [mmol/L]</label>
-        <input <?php if(isset($errors["sod"]) || isset($errors["sod-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="sod" placeholder="Enter value"><br>
-        <?php if(isset($errors["sod-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["sod-notnumber"];?></label><br> <?php endif;?>
+        <div id="p4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 4</h3>
+                </div>
 
-        <label id="check-label">Potassium [mmol/L]</label>
-        <input <?php if(isset($errors["pot"]) || isset($errors["pot-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="pot" placeholder="Enter value"><br>
-        <?php if(isset($errors["pot-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["pot-notnumber"];?></label><br> <?php endif;?>
+                <input <?php if (isset($errors["rbc"]) || isset($errors["bp-rbc-notnumber"])) echo 'id="error"'; ?>
+                        step="any"
+                        type="number"
+                        name="rbc"
+                        placeholder="Enter value"><br>
+                <?php if (isset($errors["rbc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["rbc-notnumber"]; ?></label><br> <?php endif; ?>
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step4' id="back-step4" class="back">
+                        <div>&#171;</div>
+                    </label>
 
-        <label id="check-label">Haemoglobin [g/dL]</label>
-        <input <?php if(isset($errors["hemo"]) || isset($errors["hemo-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="hemo" placeholder="Enter value"><br>
-        <?php if(isset($errors["hemo-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["hemo-notnumber"];?></label><br> <?php endif;?>
 
-        <label id="check-label">White Blood Cell count [wbcc/mL]</label>
-        <input <?php if(isset($errors["wbcc"]) || isset($errors["wbcc-notnumber"])) echo 'id="error"'; ?> step="any"  type="number" name="wbcc" placeholder="Enter value"><br>
-        <?php if(isset($errors["wbcc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["wbcc-notnumber"];?></label><br> <?php endif;?>
+                    <label for='step5' class="continue">
+                        <div>&#187;</div>
+                    </label>
 
-        <label id="check-label">Red Blood Cell count [wbcc/HPF]</label>
-        <input <?php if(isset($errors["rbcc"]) || isset($errors["rbcc-notnumber"])) echo 'id="error"'; ?> step="any" type="number" name="rbcc" placeholder="Enter value"><br>
-        <?php if(isset($errors["rbcc-notnumber"])):?><label style="margin-left: 40%" id="error-label">*<?php echo $errors["rbcc-notnumber"];?></label><br> <?php endif;?>
+                </div>
+            </div>
+        </div>
 
-        <?php if(isset($success)):?>
-            <button id="success" type="submit" name="check-submit">&#10004;Submited</button><br>
-            <div class="notmember"><p>You can check your results <a href="/result/index">here</a>.</p></div>
-        <?php else:?>
-            <button type="submit" name="check-submit">Submit</button>
-        <?php endif; ?>
+        <div id="p5">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 5</h3>
+                </div>
+
+                <input <?php if (isset($errors["bu"]) || isset($errors["bu-notnumber"])) echo 'id="error"'; ?> step="any"
+                                                                                                               type="number"
+                                                                                                               name="bu"
+                                                                                                               placeholder="Enter value"><br>
+                <?php if (isset($errors["bu-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["bu-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step5' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step6' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p6">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 6</h3>
+                </div>
+
+                <label id="check-label">Albumin [g/L]</label>
+                <input <?php if (isset($errors["al"]) || isset($errors["al-notnumber"])) echo 'id="error"'; ?> step="any"
+                                                                                                               type="number"
+                                                                                                               name="al"
+                                                                                                               placeholder="Enter value"><br>
+                <?php if (isset($errors["al-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["al-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step6' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step7' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p7">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 7</h3>
+                </div>
+
+                <label id="check-label">Serum Creatinine [umol/L]</label>
+                <input <?php if (isset($errors["sc"]) || isset($errors["sc-notnumber"])) echo 'id="error"'; ?> step="any"
+                                                                                                               type="number"
+                                                                                                               name="sc"
+                                                                                                               placeholder="Enter value"><br>
+                <?php if (isset($errors["sc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["sc-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step7' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step8' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p8">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 8</h3>
+                </div>
+                <label id="check-label">Sodium [mmol/L]</label>
+                <input <?php if (isset($errors["sod"]) || isset($errors["sod-notnumber"])) echo 'id="error"'; ?> step="any"
+                                                                                                                 type="number"
+                                                                                                                 name="sod"
+                                                                                                                 placeholder="Enter value"><br>
+                <?php if (isset($errors["sod-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["sod-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step8' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step9' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p9">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 9</h3>
+                </div>
+
+                <label id="check-label">Potassium [mmol/L]</label>
+                <input <?php if (isset($errors["pot"]) || isset($errors["pot-notnumber"])) echo 'id="error"'; ?> step="any"
+                                                                                                                 type="number"
+                                                                                                                 name="pot"
+                                                                                                                 placeholder="Enter value"><br>
+                <?php if (isset($errors["pot-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["pot-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step9' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step10' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 10</h3>
+                </div>
+
+                <label id="check-label">Haemoglobin [g/dL]</label>
+                <input <?php if (isset($errors["hemo"]) || isset($errors["hemo-notnumber"])) echo 'id="error"'; ?>
+                    step="any"
+                    type="number"
+                    name="hemo"
+                    placeholder="Enter value"><br>
+                <?php if (isset($errors["hemo-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["hemo-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step10' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step11' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p11">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 11</h3>
+                </div>
+
+                <label id="check-label">White Blood Cell count [wbcc/mL]</label>
+                <input <?php if (isset($errors["wbcc"]) || isset($errors["wbcc-notnumber"])) echo 'id="error"'; ?>
+                    step="any"
+                    type="number"
+                    name="wbcc"
+                    placeholder="Enter value"><br>
+                <?php if (isset($errors["wbcc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["wbcc-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step11' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+
+                    <label for='step12' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Part 12</h3>
+                </div>
+
+                <label id="check-label">Red Blood Cell count [wbcc/HPF]</label>
+                <input <?php if (isset($errors["rbcc"]) || isset($errors["rbcc-notnumber"])) echo 'id="error"'; ?>
+                    step="any"
+                    type="number"
+                    name="rbcc"
+                    placeholder="Enter value"><br>
+                <?php if (isset($errors["rbcc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["rbcc-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step12' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+                    <div class="submit">
+                    <?php if (isset($success)): ?>
+                            <button id="success" type="submit" name="check-submit">&#10004;Submited</button><br>
+                            <div class="notmember"><p>Rezultate možete pogledati <a href="/result/index">ovdje</a>.</p></div>
+                        <?php else: ?>
+                            <button type="submit" name="check-submit">Provjeri</button>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </form>
 </div>
+
 
 <?php require '../app/Views/footer.phtml' ?>

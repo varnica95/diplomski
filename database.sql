@@ -58,7 +58,10 @@ VALUES ('0.0','bp_normal','Your blood pressure (systolic and diastolic) is prett
 ('30.0','rbcc_high','By this value, red blood cell count in your urine is pretty much high. That means that you have infection or kidney stones.'),
 ('31.0','wbcc_low','By this number, you have low level of white blood cells in your urine. It means that you might have some kind of kidney or urinary inflammation. You should take an antibiotic.'),
 ('32.0','wbcc_normal','White blood cell count in your urine is normal. Do not worry about it.'),
-('33.0','wbcc_high','Your white blood cell count in urine is pretty much high. It means that you might have some kind of kidney or urinary inflammation. You should take an antibiotic.');
+('33.0','wbcc_high','Your white blood cell count in urine is pretty much high. It means that you might have some kind of kidney or urinary inflammation. You should take an antibiotic.'),
+('34.0','al_normal','Albumin level in your urine is normal. Do not worry about it.'),
+('35.0','al_micro','It seems like you have Microalbuminuria. It means that you have a kidney disease. Kedneys leak small amount of albumin into your urine. Let me give you some blood pressure medicine.'),
+('36.0','al_macro','It seems like you have Macroalbuminuria. It means that you have a kidney disease. Kedneys leak big amount of albumin into your urine. Let me give you some blood pressure medicine.');
 
 CREATE TABLE user_table(
     id int(11) auto_increment primary key,
@@ -66,6 +69,7 @@ CREATE TABLE user_table(
      bp_sys VARCHAR(10) NOT NULL ,
       bp_dia VARCHAR(10) NOT NULL ,
       sg VARCHAR(10) NOT NULL ,
+      al VARCHAR(10) NOT NULL ,
       su VARCHAR(10) NOT NULL ,
       rbc VARCHAR(10) NOT NULL ,
       bu VARCHAR(10) NOT NULL ,
@@ -78,6 +82,7 @@ CREATE TABLE user_table(
        ckd VARCHAR(10) NOT NULL ,
        bp_note LONGTEXT NOT NULL ,
       sg_note LONGTEXT NOT NULL ,
+      al_note LONGTEXT NOT NULL ,
       su_note LONGTEXT NOT NULL ,
       rbc_note LONGTEXT NOT NULL ,
       bu_note LONGTEXT NOT NULL ,

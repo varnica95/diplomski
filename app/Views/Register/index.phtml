@@ -1,40 +1,57 @@
 <?php require '../app/Views/header.phtml'; ?>
 
-<div class="login-form">
+<div class="register-form">
     <form class="signup-form" action="/registration/signup" method="POST">
-        <input <?php if(isset($errors["firstname"])) echo "id=error";?> type="text" name="firstname" placeholder="First name"><br>
-        <?php if(isset($errors["firstname"])):?><label id="error-label">*<?php echo $errors["firstname"];?></label> <?php endif;?>
-        <input <?php if(isset($errors["lastname"])) echo "id=error";?> type="text" name="lastname" placeholder="Last name"><br>
-        <?php if(isset($errors["lastname"])):?><label id="error-label">*<?php echo $errors["lastname"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["firstname"])) echo "id=error";?> type="text" name="firstname" placeholder="Ime"><br>
+        <?php if(isset($errors["firstname"])):?><label class="error-label" hidden>*<?php echo $errors["firstname"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["lastname"])) echo "id=error";?> type="text" name="lastname" placeholder="Prezime"><br>
+        <?php if(isset($errors["lastname"])):?><label class="error-label" hidden>*<?php echo $errors["lastname"];?></label> <?php endif;?>
 
-        <input <?php if(isset($errors["username"])) echo "id=error";?> type="text" name="username" placeholder="Username"><br>
-        <?php if(isset($errors["username"])):?><label id="error-label">*<?php echo $errors["username"];?></label> <?php endif;?>
-        <?php if(isset($errors["usernameexists"])):?><label id="error-label">*<?php echo $errors["usernameexists"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["username"])) echo "id=error";?> type="text" name="username" placeholder="Korisničko ime"><br>
+        <?php if(isset($errors["username"])):?><label class="error-label" hidden>*<?php echo $errors["username"];?></label> <?php endif;?>
+        <?php if(isset($errors["usernameexists"])):?><label class="error-label" hidden>*<?php echo $errors["usernameexists"];?></label> <?php endif;?>
 
-        <input <?php if(isset($errors["email"])) echo "id=error";?> type="text" name="email" placeholder="Email"><br>
-        <?php if(isset($errors["email"])):?><label id="error-label">*<?php echo $errors["email"];?></label> <?php endif;?>
-        <?php if(isset($errors["emailexists"])):?><label id="error-label">*<?php echo $errors["emailexists"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["email"])) echo "id=error";?> type="text" name="email" placeholder="Email adeesa"><br>
+        <?php if(isset($errors["email"])):?><label class="error-label" hidden>*<?php echo $errors["email"];?></label> <?php endif;?>
+        <?php if(isset($errors["emailexists"])):?><label class="error-label" hidden">*<?php echo $errors["emailexists"];?></label> <?php endif;?>
 
-        <input <?php if(isset($errors["gender"])) echo "id=error";?> list="browsers" name="gender" placeholder="Gender">
+        <input <?php if(isset($errors["gender"])) echo "id=error";?> list="browsers" name="gender" placeholder="Spol">
         <datalist id="browsers">
             <option value="Male">
             <option value="Female">
         </datalist><br>
 
         <input type="date" name="birthdate" min="1920-12-31" max="2010-12-31"><br>
-        <input <?php if(isset($errors["password"])) echo "id=error";?> type="password" name="password" placeholder="Password"><br>
-        <?php if(isset($errors["password"])):?><label id="error-label">*<?php echo $errors["password"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["password"])) echo "id=error";?> type="password" name="password" placeholder="Lozinka"><br>
+        <?php if(isset($errors["password"])):?><label class="error-label" hidden>*<?php echo $errors["password"];?></label> <?php endif;?>
 
-        <input type="password" name="password-again" placeholder="Repeat your password"><br>
+        <input type="password" name="password-again" placeholder="Ponovno upišite lozinku"><br>
 
-        <?php if(isset($errors["empty"])):?><label id="error-label">*<?php echo $errors["empty"];?></label> <?php endif;?>
+        <?php if(isset($errors["empty"])):?><label class="error-label" hidden>*<?php echo $errors["empty"];?></label> <?php endif;?>
 
         <?php if(!isset($errors["emailexists"]) && !isset($errors["usernameexists"]) && isset($success)):?>
-            <button id="success" type="submit" name="signup-submit">&#10004;Registered</button>
+            <button id="success" type="submit" name="signup-submit">&#10004;Registrirani ste</button>
         <?php else:?>
-            <button type="submit" name="signup-submit">Register</button>
+            <button type="submit" name="signup-submit">Registriraj se</button>
+        <?php if(isset($errors)): ?>
+                <a  onclick="return showErrors()" id="error-button">&#10007;Prikažite pogreške</a>
+            <?php endif; ?>
         <?php endif; ?>
     </form>
 </div>
 
+
+<script>
+    function showErrors() {
+        var elements = document.getElementsByClassName("error-label");
+
+        for(var i = 0; i < elements.length; i++) {
+            if (elements[i].style.display === "none") {
+                elements[i].style.display = "block";
+            } else {
+                elements[i].style.display = "none";
+            }
+        }
+    }
+</script>
 <?php require '../app/Views/footer.phtml' ?>

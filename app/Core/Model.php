@@ -129,35 +129,38 @@ class Model
 
             if($table == "user_table")
             {
-                $sql = "INSERT INTO user_table (user_id, bp_sys, bp_dia, sg, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, bp_note, sg_note, su_note, rbc_note, bu_note, sc_note, sod_note, pot_note, hemo_note, wbcc_note, rbcc_note, ckd_note, created) 
-                        VALUES (:user_id, :bp_sys, :bp_dia, :sg, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :bp_note, :sg_note, :su_note, :rbc_note, :bu_note, :sc_note, :sod_note, :pot_note, :hemo_note, :wbcc_note, :rbcc_note, :ckd_note, :created)";
+                echo "TU SAM";
+                $sql = "INSERT INTO user_table (user_id, bp_sys, bp_dia, sg, al, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, bp_note, sg_note, al_note, su_note, rbc_note, bu_note, sc_note, sod_note, pot_note, hemo_note, wbcc_note, rbcc_note, ckd_note, created) 
+                        VALUES (:user_id, :bp_sys, :bp_dia, :sg, :al, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :bp_note, :sg_note, :al_note, :su_note, :rbc_note, :bu_note, :sc_note, :sod_note, :pot_note, :hemo_note, :wbcc_note, :rbcc_note, :ckd_note, :created)";
                 $stmt = $this->connection->prepare($sql);
                 $stmt->bindValue(":user_id", Session::get("id"));
                 $stmt->bindValue(":bp_sys", $data[0]);
                 $stmt->bindValue(":bp_dia",  $data[1]);
                 $stmt->bindValue(":sg",  $data[2]);
-                $stmt->bindValue(":su",  $data[3]);
-                $stmt->bindValue(":rbc",  $data[4]);
-                $stmt->bindValue(":bu",  $data[5]);
-                $stmt->bindValue(":sc",  $data[6]);
-                $stmt->bindValue(":sod",  $data[7]);
-                $stmt->bindValue(":pot",  $data[8]);
-                $stmt->bindValue(":hemo",  $data[9]);
-                $stmt->bindValue(":wbcc",  $data[10]);
-                $stmt->bindValue(":rbcc",  $data[11]);
-                $stmt->bindValue(":ckd",  $data[12]);
-                $stmt->bindValue(":bp_note", $data[13][0]);
-                $stmt->bindValue(":sg_note",  $data[13][1]);
-                $stmt->bindValue(":su_note",  $data[13][2]);
-                $stmt->bindValue(":rbc_note",  $data[13][3]);
-                $stmt->bindValue(":bu_note",  $data[13][4]);
-                $stmt->bindValue(":sc_note",  $data[13][5]);
-                $stmt->bindValue(":sod_note",  $data[13][6]);
-                $stmt->bindValue(":pot_note",  $data[13][7]);
-                $stmt->bindValue(":hemo_note",  $data[13][8]);
-                $stmt->bindValue(":wbcc_note",  $data[13][9]);
-                $stmt->bindValue(":rbcc_note",  $data[13][10]);
-                $stmt->bindValue(":ckd_note",  $data[13][11]);
+                $stmt->bindValue(":al", $data[3]);
+                $stmt->bindValue(":su",  $data[4]);
+                $stmt->bindValue(":rbc",  $data[5]);
+                $stmt->bindValue(":bu",  $data[6]);
+                $stmt->bindValue(":sc",  $data[7]);
+                $stmt->bindValue(":sod",  $data[8]);
+                $stmt->bindValue(":pot",  $data[9]);
+                $stmt->bindValue(":hemo",  $data[10]);
+                $stmt->bindValue(":wbcc",  $data[11]);
+                $stmt->bindValue(":rbcc",  $data[12]);
+                $stmt->bindValue(":ckd",  $data[13]);
+                $stmt->bindValue(":bp_note", $data[14][0]);
+                $stmt->bindValue(":sg_note",  $data[14][1]);
+                $stmt->bindValue(":al_note",  $data[14][2]);
+                $stmt->bindValue(":su_note",  $data[14][3]);
+                $stmt->bindValue(":rbc_note",  $data[14][4]);
+                $stmt->bindValue(":bu_note",  $data[14][5]);
+                $stmt->bindValue(":sc_note",  $data[14][6]);
+                $stmt->bindValue(":sod_note",  $data[14][7]);
+                $stmt->bindValue(":pot_note",  $data[14][8]);
+                $stmt->bindValue(":hemo_note",  $data[14][9]);
+                $stmt->bindValue(":wbcc_note",  $data[14][10]);
+                $stmt->bindValue(":rbcc_note",  $data[14][11]);
+                $stmt->bindValue(":ckd_note",  $data[14][12]);
                 $stmt->bindValue(':created', date("Y-m-d H:i:s"));
             }
 

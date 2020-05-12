@@ -31,9 +31,9 @@ class Validation
             if(empty($value))
             {
                 if($key === "gender")
-                    $this->makeError("gender", "Fields cannot be empty.");
+                    $this->makeError("gender", "Molimo popunite sva prazna polja.");
 
-                $this->makeError("empty", "Fields cannot be empty.");
+                $this->makeError("empty", "Molimo popunite sva prazna polja.");
             }
         }
     }
@@ -42,12 +42,12 @@ class Validation
     {
         if (!preg_match("/^([a-zA-Z' ]+)$/", $this->_data["firstname"]))
         {
-            $this->makeError("firstname", "Name ". $this->_data["firstname"] . " is not valid.");
+            $this->makeError("firstname", "Uneseno ime ". $this->_data["firstname"] . " nije važeče.");
         }
 
         if (!preg_match("/^([a-zA-Z' ]+)$/", $this->_data["lastname"]))
         {
-            $this->makeError("lastname", "Lastname ". $this->_data["lastname"] . " is not valid.");
+            $this->makeError("lastname", "Uneseno prezime ". $this->_data["lastname"] . " nije važeće.");
         }
     }
 
@@ -55,11 +55,11 @@ class Validation
     {
         if(strlen($this->_data["username"]) < 5)
         {
-            $this->makeError("username", "Username is too short.");
+            $this->makeError("username", "Duljina korisničkog imena ne može biti manja od 5.");
         }
         else if (!preg_match("/^([a-zA-Z0-9' ]+)$/", $this->_data["username"]))
         {
-            $this->makeError("username", "Username must contain only letters or numbers.");
+            $this->makeError("username", "Korinsničko ime mora sadržavati samo slova i brojeve.");
         }
     }
 
@@ -67,7 +67,7 @@ class Validation
     {
         if(!filter_var($this->_data["email"], FILTER_VALIDATE_EMAIL))
         {
-            $this->makeError("email", "Email " . $this->_data["email"] ." is not valid.");
+            $this->makeError("email", "Email adresa " . $this->_data["email"] ." nije važeća.");
         }
     }
 
@@ -75,19 +75,19 @@ class Validation
     {
         if(strlen($this->_data["password"]) < 5)
         {
-            $this->makeError("password", "Password is too short");
+            $this->makeError("password", "Duljina lozinke ne može biti manja od 5.");
         }
         else if(!preg_match("#[0-9]+#", $this->_data["password"]))
         {
-            $this->makeError('password','Password must contain a number.');
+            $this->makeError('password','Lozinka mora sadržavati broj.');
         }
         else if(!preg_match("#[A-Z]+#", $this->_data["password"]))
         {
-            $this->makeError('password', 'Password must contain a capital number.');
+            $this->makeError('password', 'Lozinka mora sadržavati veliko slovo.');
         }
         else if ($this->_data["password"] !== $this->_data["password-again"])
         {
-            $this->makeError('password','Passwords do not match.');
+            $this->makeError('password','Unesene lozinke se ne podudaraju.');
         }
     }
 

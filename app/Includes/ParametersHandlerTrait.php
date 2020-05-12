@@ -84,6 +84,61 @@ trait ParametersHandlerTrait
         }
     }
 
+    public function albumin($x)
+    {
+        $tempereryNote = '';
+
+        if($x > 350)
+        {
+            $tempereryNote = $this->getNote('al_macro');
+
+            $this->writeNote('al_macro', $tempereryNote["note"]);
+
+            return 5;
+        }
+        else if(300 <= $x && $x <= 350)
+        {
+            $tempereryNote = $this->getNote('al_macro');
+
+            $this->writeNote('al_macro', $tempereryNote["note"]);
+
+            return 4;
+        }
+        else if(30 <= $x && $x < 300)
+        {
+            $tempereryNote = $this->getNote('al_micro');
+
+            $this->writeNote('al_micro', $tempereryNote["note"]);
+
+            return 3;
+        }
+        else if($x < 30)
+        {
+            if($x > 27)
+            {
+                $tempereryNote = $this->getNote('al_normal');
+
+                $this->writeNote('al_normal', $tempereryNote["note"]);
+
+                return 2;
+            }
+            else if( $x > 25 ){
+                $tempereryNote = $this->getNote('al_normal');
+
+                $this->writeNote('al_normal', $tempereryNote["note"]);
+
+                return 1;
+            }
+            else{
+                $tempereryNote = $this->getNote('al_normal');
+
+                $this->writeNote('al_normal', $tempereryNote["note"]);
+
+                return 0;
+            }
+        }
+    }
+
     public function sugar($x)
     {
         $tempereryNote = '';
