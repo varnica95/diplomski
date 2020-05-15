@@ -15,8 +15,7 @@ class ParametersValidation
 
     public function __construct($params)
     {
-        foreach ($params as $key => $value)
-        {
+        foreach ($params as $key => $value) {
             $this->_data[$key] = $value;
         }
 
@@ -25,9 +24,8 @@ class ParametersValidation
 
     private function emptyfields()
     {
-        foreach ($this->_data as $key => $value)
-        {
-            if($key !== "check-submit") {
+        foreach ($this->_data as $key => $value) {
+            if ($key !== "check-submit") {
                 if (empty(($value))) {
                     $this->makeError($key, "Fields cannot be empty.");
                 }
@@ -37,19 +35,15 @@ class ParametersValidation
 
     private function onlynumber()
     {
-        foreach ($this->_data as $key => $value)
-        {
-            if($key !== "check-submit"){
-                if($key === "sg")
-                {
-                    if(!strpos($value, "."))
-                    {
+        foreach ($this->_data as $key => $value) {
+            if ($key !== "check-submit") {
+                if ($key === "sg") {
+                    if (!strpos($value, ".")) {
                         $this->makeError($key . "-notfloat", "Must have a decimal point.");
                     }
-                }
-                else {
-                    if(!is_numeric($value))
-                     $this->makeError($key . "-notnumber", "Fields must have a numeric value.");
+                } else {
+                    if (!is_numeric($value))
+                        $this->makeError($key . "-notnumber", "Fields must have a numeric value.");
                 }
             }
         }

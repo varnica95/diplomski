@@ -46,7 +46,7 @@ class User extends Model
 
         if(!empty($loggeduser)) {
             if (!password_verify($this->data["password"], $loggeduser->data["password"])) {
-                $this->makeError("password", "Incorrect password.");
+                $this->makeError("password", "Lozinka nije točna.");
                 return false;
             } else {
                 Session::set('id', $loggeduser->data['id']);
@@ -76,7 +76,7 @@ class User extends Model
             }
         }
         else{
-            $this->makeError("account", "Wrong account.");
+            $this->makeError("account", "Netočan korinički račun ili email adresa.");
         }
     }
 

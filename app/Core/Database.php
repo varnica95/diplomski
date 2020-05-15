@@ -15,7 +15,7 @@ class Database
         try{
             $this->_pdo = new \PDO(
                 'mysql:host='. Config::getInstance()->getConfig("mysql/host").
-                ';dbname=' . Config::getInstance()->getConfig("mysql/database") . ';',
+                ';dbname=' . Config::getInstance()->getConfig("mysql/database") . ';charset=utf8;',
                 Config::getInstance()->getConfig("mysql/username"),
                 Config::getInstance()->getConfig("mysql/password")
             );

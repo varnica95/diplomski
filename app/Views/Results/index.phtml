@@ -5,10 +5,9 @@
     <table>
         <thead>
         <tr>
-            <th class="col-name" scope="col">ID</th>
-            <th class="col-name" scope="col">PARAMETERS</th>
-            <th class="col-name" scope="col">CREATED</th>
-            <th class="col-name" scope="col">ACTION</th>
+            <th class="col-name" scope="col">br.</th>
+            <th class="col-name" scope="col">Nalaz izdan</th>
+            <th class="col-name" scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -17,16 +16,15 @@
                 foreach ($row as $key => $value):
         ?>
             <tr <?php if($value["ckd"] == 1) {
-                echo 'id="pos"';
-            } else {
                 echo 'id="neg"';
+            } else {
+                echo 'id="pos"';
             }  ?>>
                 <td><?php echo $key += 1; ?></td>
-                <td><?php echo $value["ckd_note"]; ?></td>
                 <td><?php echo $value["created"]; ?></td>
                 <td>
-                    <a href="/result/details/<?php echo $value["id"]; ?>">Details</a>
-                    <a>Delete</a>
+                    <a href="/result/details/<?php echo $value["id"]; ?>">Pogledaj</a>
+                    <a>Obriši</a>
                 </td>
             </tr>
         <?php endforeach;

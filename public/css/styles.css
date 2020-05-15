@@ -188,7 +188,7 @@ input[type="date"]::-webkit-inner-spin-button {
     border: 1px solid #ccc;
     font-size: 16px;
     line-height: 40px;
-    width: 70%;
+    width: 40%;
     margin-left: 5%;
     margin-bottom: 2.5%;
 }
@@ -240,6 +240,16 @@ input[type="date"]::-webkit-inner-spin-button {
     background-color: #e2e2e2;
 }
 
+.page-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-heading h3{
+    color: #e2e2e2;
+}
+
 .btn-group {
     width: 90%;
     margin: 0 auto 10px auto;
@@ -264,6 +274,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step2:checked ~ #p1 {
     opacity: 0;
     display: none;
@@ -273,6 +284,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step3:checked ~ #p2 {
     opacity: 0;
     display: none;
@@ -282,6 +294,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step4:checked ~ #p3 {
     opacity: 0;
     display: none;
@@ -291,6 +304,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step5:checked ~ #p4 {
     opacity: 0;
     display: none;
@@ -300,6 +314,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step6:checked ~ #p5 {
     opacity: 0;
     display: none;
@@ -309,6 +324,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step7:checked ~ #p6 {
     opacity: 0;
     display: none;
@@ -318,6 +334,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step8:checked ~ #p7 {
     opacity: 0;
     display: none;
@@ -327,6 +344,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step9:checked ~ #p8 {
     opacity: 0;
     display: none;
@@ -336,6 +354,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step10:checked ~ #p9 {
     opacity: 0;
     display: none;
@@ -345,6 +364,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step11:checked ~ #p10 {
     opacity: 0;
     display: none;
@@ -354,6 +374,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step12:checked ~ #p11 {
     opacity: 0;
     display: none;
@@ -363,6 +384,7 @@ input[type="date"]::-webkit-inner-spin-button {
     opacity: 1;
     height: auto;
 }
+
 #step13:checked ~ #p12 {
     opacity: 0;
     display: none;

@@ -1,8 +1,11 @@
 .results-table {
     position: absolute;
-    max-width: 100%;
-    margin: -370px auto 0;
-    margin-left: 40%;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -250px;
+    width: 100%;
+    max-width: 500px;
 }
 
 table{
@@ -29,15 +32,11 @@ table{
 }
 
 .col-name:last-child{
-    width: 100px;
+    width: 50px;
 }
 
 .col-name:nth-child(2){
-    width: 400px;
-}
-
-.col-name:nth-child(3){
-    width: 200px;
+    width: 100px;
 }
 
 .col-name1{
@@ -58,7 +57,7 @@ table{
 }
 
 #pos {
-    background-color: #c94c4c;
+    background-color: #405d27;
     border-bottom: 1px solid #e2e2e2;
     color:#e2e2e2;
     padding: 20px;
@@ -66,7 +65,7 @@ table{
 }
 
 #neg {
-    background-color: #405d27;
+    background-color: #c94c4c;
     border-bottom: 1px solid #e2e2e2;
     color:#e2e2e2;
     padding: 20px;
@@ -75,4 +74,30 @@ table{
 
 td:first-child{
    text-align: center;
+}
+
+.header{
+    background-color: #212121;
+    color: #e2e2e2;
+    padding: 18px;
+    width: 60%;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+}
+
+.content {
+    width: 60%;
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #cccccc;
+    display: block;
+    outline: none;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
 }

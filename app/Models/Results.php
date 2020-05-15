@@ -16,11 +16,11 @@ class Results extends Model
 
     public function getUserResults()
     {
-       return $this->loadUserResults("user_table", "user_id", $this->user_id);
+       return $this->loadUserResults("details_table", "user_id", $this->user_id);
     }
 
     public static function loadDetails($id)
     {
-        return self::static_load("user_table", "id", $id);
+        return self::static_load("details_table", "id", $id);
     }
 }

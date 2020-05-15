@@ -2,8 +2,10 @@
 
 <div class="login-form">
     <form class="signup-form" action="/login/login" method="POST">
-        <input type="text" name="usernameoremail" placeholder="Korisničko ime ili email adresa"><br>
-        <input type="password" name="password" placeholder="Lozinka"><br>
+        <input <?php if(isset($errors["account"])) echo "id=error";?> type="text" name="usernameoremail" placeholder="Korisničko ime ili email adresa"><br>
+        <?php if(isset($errors["account"])):?><label class="error-label">*<?php echo $errors["account"];?></label> <?php endif;?>
+        <input <?php if(isset($errors["password"])) echo "id=error";?> type="password" name="password" placeholder="Lozinka"><br>
+        <?php if(isset($errors["password"])):?><label class="error-label">*<?php echo $errors["password"];?></label> <?php endif;?>
         <input id="remember" type="checkbox" name="remember"> <a id="remembertext">Zapamti me</a><br>
         <button type="submit" name="login-submit">Prijava</button>
        </form>
