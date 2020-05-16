@@ -24,35 +24,27 @@ class KidneyDisease extends Model
 
     public function generateDisease()
     {
-
+var_dump($this->data);
         $systolic = (int)$this->data["bp-sys"];
         $diastolic = (int)$this->data["bp-dia"];
         $hypertension = $this->bloodPressureHandler($this->data["bp-sys"], $this->data["bp-dia"]);
 
-        $rbcc = $this->data["rbcc"];
-        $wbcc = $this->data["wbcc"];
-        $rbc = $this->redAndWhiteCells($this->data["rbc"], $rbcc, $wbcc);
-
-        $al = $this->albumin($this->data["al"]);
-
-        $su = $this->sugar($this->data["su"]);
-
         $hemo = round($this->data["hemo"], 3);
-        $this->hemoglobin($hemo);
-
-        $sod = round($this->data["sod"], 3);
-        $pot = round($this->data["pot"], 3);
-        $this->sodiumAndPotassium($sod, $pot);
+        $rbc = $this->hematologyFactors($this->data["rbc"], $hemo);
 
         $bu = round($this->data["bu"], 3);
         $sc = (int)$this->data["sc"];
-        $this->bloodUreaAndSerumCreatinine($bu, $sc);
+        $sod = round($this->data["sod"], 3);
+        $pot = round($this->data["pot"], 3);
+        $su = $this->biochemicalFactors($this->data["su"], $bu, $sc, $sod, $pot);
 
         $sg = round($this->data["sg"], 5);
-        $this->specificGravity($sg);
+        $wbcc = $this->data["wbcc"];
+        $rbcc = $this->data["rbcc"];
+        $al = $this->urinaryFactors($sg, $this->data["al"], $rbcc, $wbcc);
 
         $ckd = $this->checkDiseaseAzure([
-            $diastolic,
+            $systolic,
             $sg,
             $al,
             $su,
@@ -69,8 +61,8 @@ class KidneyDisease extends Model
 
         $data = [];
         array_push($data, $systolic, $diastolic, $sg, $this->data["al"], $this->data["su"], $this->data["rbc"], $bu, $sc, $sod, $pot, $hemo, $wbcc, $rbcc, $ckd,
-            array_values($this->getNotes()));
-        var_dump($data);
+                                        array_values($this->getNotes()));
+
         $this->insert("details_table", $data);
     }
 
@@ -127,11 +119,7 @@ class KidneyDisease extends Model
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response;
-
-        var_dump($response);
         var_dump($data);
-
         $result = json_decode($response, true);
         $class = (int)$result["Results"]["output1"]["value"]["Values"][0][13];
         $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][14];

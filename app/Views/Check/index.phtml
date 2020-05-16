@@ -42,7 +42,7 @@
         <div id="p2">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3>Korak 2. Eritrociti i krv u mokraći</h3>
+                    <h3>Korak 2. Hematološki čimbenici</h3>
                 </div>
 
                 <div class="page-heading">
@@ -58,28 +58,18 @@
                     *<?php echo $errors["rbc-notnumber"]; ?></label><br> <?php endif; ?>
 
                 <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite broj eritrocita u mokraći:</h3>
+                    <h3 class="page-text">Molimo upišite hemoglobin:</h3>
                 </div>
 
-                <input <?php if (isset($errors["rbcc"]) || isset($errors["rbcc-notnumber"])) echo 'id="error"'; ?>
+                <input <?php if (isset($errors["hemo"]) || isset($errors["hemo-notnumber"])) echo 'id="error"'; ?>
                         step="any"
                         type="number"
-                        name="rbcc"
+                        name="hemo"
                         placeholder="Enter value"><br>
-                <?php if (isset($errors["rbcc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["rbcc-notnumber"]; ?></label><br> <?php endif; ?>
+                <?php if (isset($errors["hemo-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["hemo-notnumber"]; ?></label><br> <?php endif; ?>
 
-                <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite broj leukocita u mokraći:</h3>
-                </div>
 
-                <input <?php if (isset($errors["wbcc"]) || isset($errors["wbcc-notnumber"])) echo 'id="error"'; ?>
-                        step="any"
-                        type="number"
-                        name="wbcc"
-                        placeholder="Enter value"><br>
-                <?php if (isset($errors["wbcc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["wbcc-notnumber"]; ?></label><br> <?php endif; ?>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step2' class="back">
@@ -97,7 +87,7 @@
         <div id="p3">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3>Korak 3. Koncentracija glukoze u krvi</h3>
+                    <h3>Korak 3. Biokemijski čimbenici</h3>
                 </div>
 
                 <div class="page-heading">
@@ -111,6 +101,55 @@
                         placeholder="Enter value"><br>
                 <?php if (isset($errors["su-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
                     *<?php echo $errors["su-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="page-heading">
+                <h3 class="page-text">Molimo upišite koncentraciju ureje:</h3>
+            </div>
+
+            <input <?php if (isset($errors["bu"]) || isset($errors["bu-notnumber"])) echo 'id="error"'; ?>
+                    step="any"
+                    type="number"
+                    name="bu"
+                    placeholder="Enter value"><br>
+            <?php if (isset($errors["bu-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                *<?php echo $errors["bu-notnumber"]; ?></label><br> <?php endif; ?>
+
+            <div class="page-heading">
+                <h3 class="page-text">Molimo upišite koncentraciju kreatinina:</h3>
+            </div>
+
+            <input <?php if (isset($errors["sc"]) || isset($errors["sc-notnumber"])) echo 'id="error"'; ?>
+                    step="any"
+                    type="number"
+                    name="sc"
+                    placeholder="Enter value"><br>
+            <?php if (isset($errors["sc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                *<?php echo $errors["sc-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite natrij:</h3>
+                </div>
+
+                <input <?php if (isset($errors["sod"]) || isset($errors["sod-notnumber"])) echo 'id="error"'; ?>
+                        step="any"
+                        type="number"
+                        name="sod"
+                        placeholder="Enter value"><br>
+                <?php if (isset($errors["sod-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["sod-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite kalij:</h3>
+                </div>
+
+                <input <?php if (isset($errors["pot"]) || isset($errors["pot-notnumber"])) echo 'id="error"'; ?>
+                        step="any"
+                        type="number"
+                        name="pot"
+                        placeholder="Enter value"><br>
+                <?php if (isset($errors["pot-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["pot-notnumber"]; ?></label><br> <?php endif; ?>
+
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step3' class="back">
                         <div>&#171;</div>
@@ -128,7 +167,7 @@
         <div id="p4">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3>Korak 4. Specifična težina urina</h3>
+                    <h3>Korak 4. Čimbenici urina</h3>
                 </div>
 
                 <div class="page-heading">
@@ -142,26 +181,6 @@
                 <?php if (isset($errors["sg-notfloat"])): ?><label style="margin-left: 40%" id="error-label">
                     *<?php echo $errors["sg-notfloat"]; ?></label><br> <?php endif; ?>
 
-                <div class="btn-group" role="group" aria-label="...">
-                    <label for='step4' class="back">
-                        <div>&#171;</div>
-                    </label>
-
-
-                    <label for='step5' class="continue">
-                        <div>&#187;</div>
-                    </label>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="p5">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3>Korak 5. Albumin</h3>
-                </div>
-
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite albumin:</h3>
                 </div>
@@ -174,128 +193,32 @@
                 <?php if (isset($errors["al-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
                     *<?php echo $errors["al-notnumber"]; ?></label><br> <?php endif; ?>
 
-                <div class="btn-group" role="group" aria-label="...">
-                    <label for='step5' class="back">
-                        <div>&#171;</div>
-                    </label>
-
-
-                    <label for='step6' class="continue">
-                        <div>&#187;</div>
-                    </label>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="p6">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3>Korak 6. Hemoglobin</h3>
-                </div>
-
                 <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite hemoglobin:</h3>
+                    <h3 class="page-text">Molimo upišite broj leukocita u urinu:</h3>
                 </div>
 
-                <input <?php if (isset($errors["hemo"]) || isset($errors["hemo-notnumber"])) echo 'id="error"'; ?>
+                <input <?php if (isset($errors["wbcc"]) || isset($errors["wbcc-notnumber"])) echo 'id="error"'; ?>
                         step="any"
                         type="number"
-                        name="hemo"
+                        name="wbcc"
                         placeholder="Enter value"><br>
-                <?php if (isset($errors["hemo-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["hemo-notnumber"]; ?></label><br> <?php endif; ?>
+                <?php if (isset($errors["wbcc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["wbcc-notnumber"]; ?></label><br> <?php endif; ?>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite broj eritrocita u urinu:</h3>
+                </div>
+
+                <input <?php if (isset($errors["rbcc"]) || isset($errors["rbcc-notnumber"])) echo 'id="error"'; ?>
+                        step="any"
+                        type="number"
+                        name="rbcc"
+                        placeholder="Enter value"><br>
+                <?php if (isset($errors["rbcc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
+                    *<?php echo $errors["rbcc-notnumber"]; ?></label><br> <?php endif; ?>
 
                 <div class="btn-group" role="group" aria-label="...">
-                    <label for='step6' class="back">
-                        <div>&#171;</div>
-                    </label>
-
-
-                    <label for='step7' class="continue">
-                        <div>&#187;</div>
-                    </label>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="p7">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3>Korak 7. Ureja i kreatinin</h3>
-                </div>
-
-                <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite koncentraciju ureje:</h3>
-                </div>
-
-                <input <?php if (isset($errors["bu"]) || isset($errors["bu-notnumber"])) echo 'id="error"'; ?>
-                        step="any"
-                        type="number"
-                        name="bu"
-                        placeholder="Enter value"><br>
-                <?php if (isset($errors["bu-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["bu-notnumber"]; ?></label><br> <?php endif; ?>
-
-                <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite koncentraciju kreatinina:</h3>
-                </div>
-
-                <input <?php if (isset($errors["sc"]) || isset($errors["sc-notnumber"])) echo 'id="error"'; ?>
-                        step="any"
-                        type="number"
-                        name="sc"
-                        placeholder="Enter value"><br>
-                <?php if (isset($errors["sc-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["sc-notnumber"]; ?></label><br> <?php endif; ?>
-
-                <div class="btn-group" role="group" aria-label="...">
-                    <label for='step7' class="back">
-                        <div>&#171;</div>
-                    </label>
-
-
-                    <label for='step8' class="continue">
-                        <div>&#187;</div>
-                    </label>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="p8">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3>Korak 8. Kalij i natrij</h3>
-                </div>
-
-                <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite kalij:</h3>
-                </div>
-
-                <input <?php if (isset($errors["pot"]) || isset($errors["pot-notnumber"])) echo 'id="error"'; ?>
-                        step="any"
-                        type="number"
-                        name="pot"
-                        placeholder="Enter value"><br>
-                <?php if (isset($errors["pot-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["pot-notnumber"]; ?></label><br> <?php endif; ?>
-
-                <div class="page-heading">
-                    <h3 class="page-text">Molimo upišite natrij:</h3>
-                </div>
-
-                <input <?php if (isset($errors["sod"]) || isset($errors["sod-notnumber"])) echo 'id="error"'; ?>
-                        step="any"
-                        type="number"
-                        name="sod"
-                        placeholder="Enter value"><br>
-                <?php if (isset($errors["sod-notnumber"])): ?><label style="margin-left: 40%" id="error-label">
-                    *<?php echo $errors["sod-notnumber"]; ?></label><br> <?php endif; ?>
-
-                <div class="btn-group" role="group" aria-label="...">
-                    <label for='step8' class="back">
+                    <label for='step4' class="back">
                         <div>&#171;</div>
                     </label>
 
@@ -308,10 +231,10 @@
                         <?php else: ?>
                             <button type="submit" name="check-submit">Provjeri</button>
                         <?php endif; ?>
-                    </div>
-
                 </div>
             </div>
+        </div>
+
         </div>
 
     </form>

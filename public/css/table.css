@@ -101,3 +101,18 @@ td:first-child{
     margin-right: auto;
     font-size: 20px;
 }
+
+.note{
+    line-height: 25px;
+}
+
+.lines{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 2%;
+    height: calc(100% - 40px);
+    width: 90%;
+    background-image: repeating-linear-gradient(#cccccc 0px, #cccccc 24px, steelblue 25px);
+}

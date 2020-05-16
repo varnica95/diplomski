@@ -4,18 +4,50 @@
 <div class="header">Arterijska hipertenzija</div>
 <div class="content">
 
+    <div id="bp_visual"></div>
 
-    <div class="note">
-        <?php var_dump($row); ?>
-    </div>
+        <div class="lines">
+            <div class="note">
+                <?php echo "Biljeska: ". $row->data["bp_note"]; ?>
+            </div>
+        </div>
 </div>
 
-<div class="header">Eritrociti i krv u urinu</div>
+<div class="header">Hematološki čimbenici</div>
 <div class="content">
 
 
-    <div class="note"></div>
+    <div class="lines">
+        <div class="note">
+            <?php echo "Biljeska: ". "<br> Eritroci: " . $row->data["rbc_note"] . "<br> Hemoglobin: " . $row->data["hemo_note"];  ?>
+        </div>
+    </div>
 </div>
+
+<div class="header">Biokemijski čimbenici</div>
+<div class="content">
+
+
+    <div class="lines">
+        <div class="note">
+            <?php echo "Biljeska: ". "<br> Glukoza: " . $row->data["su_note"] . "<br> Ureja: " . $row->data["bu_note"] .
+                "<br> Kreatinin: " . $row->data["sc_note"] . "<br> Natrij: " . $row->data["sod_note"] . "<br> Kalij: " . $row->data["pot_note"];  ?>
+        </div>
+    </div>
+</div>
+
+<div class="header">Urinarni čimbenici</div>
+<div class="content">
+
+
+    <div class="lines">
+        <div class="note">
+            <?php echo "Biljeska: ". "<br> Specificna tezina: " . $row->data["sg_note"] . "<br> Albumin: " . $row->data["al_note"] .
+                "<br> Leukociti: " . $row->data["wbcc_note"] . "<br> Eritroci: " . $row->data["rbcc_note"];  ?>
+        </div>
+    </div>
+</div>
+
 
 
 <?php require '../app/Views/footer.phtml' ?>
