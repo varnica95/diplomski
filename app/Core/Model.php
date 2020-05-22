@@ -7,37 +7,69 @@ use PDO;
 
 class Model
 {
+    protected static $static_connection;
     public $data = array();
-
     protected $connection;
 
-    protected static $static_connection;
+    public static function static_delete($tableName, $field, $value)
+    {
+        try {
+            self::$static_connection = Database::getInstance()->getConnection();
+            $sql = "DELETE FROM {$tableName} WHERE {$field} = '{$value}' LIMIT 1";
+
+            $row = self::$static_connection->query($sql);
+
+            $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+
+            return $row->fetch();
+        } catch (\PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    protected static function static_load($table, $field, $value)
+    {
+
+        try {
+            self::$static_connection = Database::getInstance()->getConnection();
+            if ($table === "details_table") {
+
+                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
+                $row = self::$static_connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_ASSOC);
+
+                return $row->fetchAll();
+            } else {
+                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
+
+                $row = self::$static_connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+
+                return $row->fetch();
+            }
+        } catch (\PDOException $e) {
+            $e->getMessage();
+        }
+    }
 
     public function __set($name, $value)
     {
         $this->data[$name] = $value;
     }
 
-    protected function loadUserResults($table = "details_table", $field, $value)
+    protected function load($table, $field, $value, array $columns = [])
     {
         try {
             $this->connection = Database::getInstance()->getConnection();
+            if (!empty($columns)) {
+                $fields = implode(", ", $columns);
+                $sql = "SELECT {$fields} FROM {$table} WHERE {$field} = '{$value}'";
 
-            $sql = "SELECT id, ckd, ckd_note, created FROM {$table} WHERE {$field} = '{$value}' ORDER BY created DESC";
+                $row = $this->connection->query($sql);
+                $row->setFetchMode(PDO::FETCH_ASSOC);
 
-            $row = $this->connection->query($sql);
-            $row->setFetchMode(PDO::FETCH_ASSOC);
-
-            return $row->fetchAll();
-        } catch (\PDOException $e) {
-            $e->getMessage();
-        }
-    }
-
-    protected function load($table, $field, $value)
-    {
-        try {
-            $this->connection = Database::getInstance()->getConnection();
+                return $row->fetchAll();
+            }
             if ($table === "details_table") {
                 $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
 
@@ -49,30 +81,6 @@ class Model
                 $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
 
                 $row = $this->connection->query($sql);
-                $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
-
-                return $row->fetch();
-            }
-        } catch (\PDOException $e) {
-            $e->getMessage();
-        }
-    }
-
-    protected static function static_load($table, $field, $value)
-    {
-        try {
-            self::$static_connection = Database::getInstance()->getConnection();
-            if ($table === "user_table") {
-                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
-
-                $row = self::$static_connection->query($sql);
-                $row->setFetchMode(PDO::FETCH_ASSOC);
-
-                return $row->fetchAll();
-            } else {
-                $sql = "SELECT * FROM {$table} WHERE {$field} = '{$value}'";
-
-                $row = self::$static_connection->query($sql);
                 $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
 
                 return $row->fetch();
@@ -122,40 +130,49 @@ class Model
             }
 
             if ($table == "details_table") {
-
-                $sql = "INSERT INTO details_table (user_id, bp_sys, bp_dia, sg, al, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, bp_note, rbc_note, hemo_note, su_note, bu_note, sc_note, sod_note, pot_note, sg_note, al_note, wbcc_note, rbcc_note, ckd_note, created) 
-                        VALUES (:user_id, :bp_sys, :bp_dia, :sg, :al, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :bp_note, :rbc_note, :hemo_note, :su_note, :bu_note, :sc_note, :sod_note, :pot_note, :sg_note, :al_note, :wbcc_note, :rbcc_note, :ckd_note, :created)";
+                var_dump($data);
+                $sql = "INSERT INTO details_table (user_id, bp_sys, bp_dia, sg, al, alsc_ratio, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, bun_sc_ratio, crcl, gfr, bp_note, rbc_note, hemo_note, su_note, bu_note, sc_note, sod_note, pot_note, sg_note, al_note, wbcc_note, rbcc_note, ckd_note, bun_sc_ratio_note, crcl_note, crclanem_note, gfr_note, created) 
+                        VALUES (:user_id, :bp_sys, :bp_dia, :sg, :al, :alsc_ratio, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :bun_sc_ratio, :crcl, :gfr, :bp_note, :rbc_note, :hemo_note, :su_note, :bu_note, :sc_note, :sod_note, :pot_note, :sg_note, :al_note, :wbcc_note, :rbcc_note, :ckd_note, :bun_sc_ratio_note, :crcl_note, :crclanem_note, :gfr_note, :created)";
                 $stmt = $this->connection->prepare($sql);
                 $stmt->bindValue(":user_id", Session::get("id"));
                 $stmt->bindValue(":bp_sys", $data[0]);
                 $stmt->bindValue(":bp_dia", $data[1]);
                 $stmt->bindValue(":sg", $data[2]);
                 $stmt->bindValue(":al", $data[3]);
-                $stmt->bindValue(":su", $data[4]);
-                $stmt->bindValue(":rbc", $data[5]);
-                $stmt->bindValue(":bu", $data[6]);
-                $stmt->bindValue(":sc", $data[7]);
-                $stmt->bindValue(":sod", $data[8]);
-                $stmt->bindValue(":pot", $data[9]);
-                $stmt->bindValue(":hemo", $data[10]);
-                $stmt->bindValue(":wbcc", $data[11]);
-                $stmt->bindValue(":rbcc", $data[12]);
-                $stmt->bindValue(":ckd", $data[13]);
-                $stmt->bindValue(":bp_note", $data[14][0]);
-                $stmt->bindValue(":rbc_note", $data[14][1]);
-                $stmt->bindValue(":hemo_note", $data[14][2]);
-                $stmt->bindValue(":su_note", $data[14][3]);
-                $stmt->bindValue(":bu_note", $data[14][4]);
-                $stmt->bindValue(":sc_note", $data[14][5]);
-                $stmt->bindValue(":sod_note", $data[14][6]);
-                $stmt->bindValue(":pot_note", $data[14][7]);
-                $stmt->bindValue(":sg_note", $data[14][8]);
-                $stmt->bindValue(":al_note", $data[14][9]);
-                $stmt->bindValue(":rbcc_note", $data[14][10]);
-                $stmt->bindValue(":wbcc_note", $data[14][11]);
-                $stmt->bindValue(":ckd_note", $data[14][12]);
+                $stmt->bindValue(":alsc_ratio", $data[4]);
+                $stmt->bindValue(":su", $data[5]);
+                $stmt->bindValue(":rbc", $data[6]);
+                $stmt->bindValue(":bu", $data[7]);
+                $stmt->bindValue(":sc", $data[8]);
+                $stmt->bindValue(":sod", $data[9]);
+                $stmt->bindValue(":pot", $data[10]);
+                $stmt->bindValue(":hemo", $data[11]);
+                $stmt->bindValue(":wbcc", $data[12]);
+                $stmt->bindValue(":rbcc", $data[13]);
+                $stmt->bindValue(":ckd", $data[14]);
+                $stmt->bindValue(":bun_sc_ratio", $data[15]);
+                $stmt->bindValue(":crcl", $data[16]);
+                $stmt->bindValue(":gfr", $data[17]);
+                $stmt->bindValue(":bp_note", $data[18][0]);
+                $stmt->bindValue(":rbc_note", $data[18][1]);
+                $stmt->bindValue(":hemo_note", $data[18][2]);
+                $stmt->bindValue(":su_note", $data[18][3]);
+                $stmt->bindValue(":bu_note", $data[18][4]);
+                $stmt->bindValue(":sc_note", $data[18][5]);
+                $stmt->bindValue(":sod_note", $data[18][6]);
+                $stmt->bindValue(":pot_note", $data[18][7]);
+                $stmt->bindValue(":sg_note", $data[18][8]);
+                $stmt->bindValue(":al_note", $data[18][9]);
+                $stmt->bindValue(":rbcc_note", $data[18][10]);
+                $stmt->bindValue(":wbcc_note", $data[18][11]);
+                $stmt->bindValue(":ckd_note", $data[18][12]);
+                $stmt->bindValue(":bun_sc_ratio_note", $data[18][13]);
+                $stmt->bindValue(":crcl_note", $data[18][14]);
+                $stmt->bindValue(":crclanem_note", $data[18][15]);
+                $stmt->bindValue(":gfr_note", $data[18][16]);
                 $stmt->bindValue(':created', date("Y-m-d H:i:s"));
             }
+
             $stmt->execute();
 
         } catch (\PDOException $e) {
@@ -163,35 +180,19 @@ class Model
         }
     }
 
-    protected function delete($table, $field, $value)
-    {
-        try {
-            $this->connection = Database::getInstance()->getConnection();
-
-            $sql = "DELETE FROM {$table} WHERE {$field} = {$value}";
-
-            $row = $this->conn->query($sql);
-
-            $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
-
-            return $row->fetch();
-
-        } catch (\PDOException $e) {
-            $e->getMessage();
-        }
-    }
-
-    public static function static_delete($tableName, $field, $value)
+    protected static function delete($table, $field, $value)
     {
         try {
             self::$static_connection = Database::getInstance()->getConnection();
-            $sql = "DELETE FROM {$tableName} WHERE {$field} = '{$value}'";
+
+            $sql = "DELETE FROM {$table} WHERE {$field} = {$value}";
 
             $row = self::$static_connection->query($sql);
 
             $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
 
             return $row->fetch();
+
         } catch (\PDOException $e) {
             $e->getMessage();
         }

@@ -16,11 +16,16 @@ class Results extends Model
 
     public function getUserResults()
     {
-       return $this->loadUserResults("details_table", "user_id", $this->user_id);
+       return $this->load("details_table", "user_id", $this->user_id, ["id", "ckd", "created"]);
     }
 
     public static function loadDetails($id)
     {
         return self::static_load("details_table", "id", $id);
+    }
+
+    public static function sdelete($id)
+    {
+        Model::static_delete("details_table", "id", $id);
     }
 }

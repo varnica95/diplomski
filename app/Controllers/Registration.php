@@ -20,18 +20,18 @@ class Registration extends Controller
         {
             $validation = new Validation($_POST);
 
-            if($validation->isPassed()) {
+            if(!$validation->isPassed()) {
+                echo $this->view->render('Register/index.phtml', [
+                    'errors' => $validation->getError()
+                ]);
+            }
+            else{
                 $user = new User($_POST);
                 $user->newuser();
 
                 echo $this->view->render('Register/index.phtml', [
                     'success' => 'Registration successfully completed.',
                     'errors' => $user->getError()
-                ]);
-            }
-            else{
-                echo $this->view->render('Register/index.phtml', [
-                    'errors' => $validation->getError()
                 ]);
             }
         }

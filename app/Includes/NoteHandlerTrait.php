@@ -3,6 +3,7 @@
 
 namespace App\Includes;
 
+use App\Core\Model;
 
 trait NoteHandlerTrait
 {

@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home page</title>
+    <title>Web aplikazija za bolesti bubrega</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/registration.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
-    <script src="https://d3js.org/d3.v3.min.js"></script>
 </head>
 
 <body>
     <nav>
-        <?php if(isset($userlogged)):?>
-        <div class="welcome"><?php echo $userlogged; ?></div>
-        <?php endif;?>
         <ul>
             <?php if(!\App\Includes\Session::get("id")):?>
             <li><a href="/home/">Početna</a></li>
@@ -20,8 +17,8 @@
             <?php endif;?>
             <?php if(\App\Includes\Session::get("id")):?>
                 <li><a href="/home/">Početna</a></li>
-            <li><a href="/parameters/">Provjera bolesti</a></li>
-            <li><a href="/result/">Moji rezultati</a></li>
+            <li><a href="/parameters/">Unos nalaza</a></li>
+            <li><a href="/result/">Moji nalazi</a></li>
             <li style="float:right"><a href="/login/logout">Odjava</a></li>
                 <?php if(isset($userlogged)):?>
                     <li style="float:right"><a><?php echo $userlogged; ?></a></li>

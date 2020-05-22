@@ -2,56 +2,150 @@
 
 <div class="register-form">
     <form class="signup-form" action="/registration/signup" method="POST">
-        <input <?php if(isset($errors["firstname"])) echo "id=error";?> type="text" name="firstname" placeholder="Ime"><br>
-        <?php if(isset($errors["firstname"])):?><label class="error-label" hidden>*<?php echo $errors["firstname"];?></label> <?php endif;?>
-        <input <?php if(isset($errors["lastname"])) echo "id=error";?> type="text" name="lastname" placeholder="Prezime"><br>
-        <?php if(isset($errors["lastname"])):?><label class="error-label" hidden>*<?php echo $errors["lastname"];?></label> <?php endif;?>
-
-        <input <?php if(isset($errors["username"])) echo "id=error";?> type="text" name="username" placeholder="Korisničko ime"><br>
-        <?php if(isset($errors["username"])):?><label class="error-label" hidden>*<?php echo $errors["username"];?></label> <?php endif;?>
-        <?php if(isset($errors["usernameexists"])):?><label class="error-label" hidden>*<?php echo $errors["usernameexists"];?></label> <?php endif;?>
-
-        <input <?php if(isset($errors["email"])) echo "id=error";?> type="text" name="email" placeholder="Email adeesa"><br>
-        <?php if(isset($errors["email"])):?><label class="error-label" hidden>*<?php echo $errors["email"];?></label> <?php endif;?>
-        <?php if(isset($errors["emailexists"])):?><label class="error-label" hidden">*<?php echo $errors["emailexists"];?></label> <?php endif;?>
-
-        <input <?php if(isset($errors["gender"])) echo "id=error";?> list="browsers" name="gender" placeholder="Spol">
-        <datalist id="browsers">
-            <option value="Male">
-            <option value="Female">
-        </datalist><br>
-
-        <input type="date" name="birthdate" min="1920-12-31" max="2010-12-31"><br>
-        <input <?php if(isset($errors["password"])) echo "id=error";?> type="password" name="password" placeholder="Lozinka"><br>
-        <?php if(isset($errors["password"])):?><label class="error-label" hidden>*<?php echo $errors["password"];?></label> <?php endif;?>
-
-        <input type="password" name="password-again" placeholder="Ponovno upišite lozinku"><br>
-
-        <?php if(isset($errors["empty"])):?><label class="error-label" hidden>*<?php echo $errors["empty"];?></label> <?php endif;?>
+        <input id='step2' type='checkbox'>
+        <input id='step3' type='checkbox'>
 
         <?php if(!isset($errors["emailexists"]) && !isset($errors["usernameexists"]) && isset($success)):?>
-            <button id="success" type="submit" name="signup-submit">&#10004;Registrirani ste</button>
+
+            <div id="p1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>Registracija uspješna</h3>
+                   </div>
+                    <div id="success">&#10004;Registrirani ste. Možete se prijaviti.</div>
+                </div>
+            </div>
+
+        <?php elseif (isset($errors)):?>
+
+            <div id="p1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>Registracija neuspješna</h3>
+                    </div>
+                    <?php if(isset($errors["empty"])):?><label class="error-label">*<?php echo $errors["empty"];?></label><br> <?php endif;?>
+                    <?php if(isset($errors["firstname"])):?><label class="error-label">*<?php echo $errors["firstname"];?></label><br><?php endif;?>
+                    <?php if(isset($errors["lastname"])):?><label class="error-label">*<?php echo $errors["lastname"];?></label><br><?php endif;?>
+                    <?php if(isset($errors["username"])):?><label class="error-label">*<?php echo $errors["username"];?></label> <br> <?php endif;?>
+                    <?php if(isset($errors["usernameexists"])):?><label class="error-label">*<?php echo $errors["usernameexists"];?></label> <br> <?php endif;?>
+                    <?php if(isset($errors["email"])):?><label class="error-label">*<?php echo $errors["email"];?></label> <br><?php endif;?>
+                    <?php if(isset($errors["emailexists"])):?><label class="error-label">*<?php echo $errors["emailexists"];?></label> <br> <?php endif;?>
+                    <?php if(isset($errors["password"])):?><label class="error-label">*<?php echo $errors["password"];?></label> <br> <br><?php endif;?>
+                    <a id="again-button" href="/registration/">Pokušajte ponovno</a>
+                </div>
+            </div>
+
         <?php else:?>
-            <button type="submit" name="signup-submit">Registriraj se</button>
-        <?php if(isset($errors)): ?>
-                <a  onclick="return showErrors()" id="error-button">&#10007;Prikažite pogreške</a>
-            <?php endif; ?>
-        <?php endif; ?>
+
+
+
+        <div id="p1">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Korak 1. Osobni podaci</h3>
+                </div>
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite ime i prezime:</h3>
+                </div>
+
+                <input type="text" name="firstname" placeholder="Ime"><br>
+                <input type="text" name="lastname" placeholder="Prezime"><br>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite godište:</h3>
+                </div>
+
+                <input type="date" name="birthdate" min="1920-12-31" max="2010-12-31"><br>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite spol:</h3>
+                </div>
+
+                <input list="browsers" name="gender" placeholder="Spol">
+                <datalist id="browsers">
+                    <option value="Male">
+                    <option value="Female">
+                </datalist><br>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite tjelesnu težinu (kg):</h3>
+                </div>
+
+                <input step="any" type="number" name="weight" placeholder="Težina">
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step2' class="continue">
+                        <div>&#187;</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="p2">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Korak 2. Podaci o korisničkom računu</h3>
+                </div>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite korisnički račun:</h3>
+                </div>
+
+                <input type="text" name="username" placeholder="Korisničko ime"><br>
+
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite email adresu:</h3>
+                </div>
+
+                <input type="text" name="email" placeholder="Email adeesa"><br>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo upišite lozinku:</h3>
+                </div>
+
+                <input type="password" name="password" placeholder="Lozinka"><br>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step2' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+                    <label for='step3' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p3">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Korak 3. Potvrda registracije</h3>
+                </div>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Molimo ponovno upišite lozinku zbog potvrde:</h3>
+                </div>
+
+                <input type="password" name="password-again" placeholder="Ponovno upišite lozinku"><br>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step3' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+                    <div class="submit">
+                        <button type="submit" name="signup-submit">Registriraj se</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
 </div>
 
+<?php endif; ?>
 
-<script>
-    function showErrors() {
-        var elements = document.getElementsByClassName("error-label");
-
-        for(var i = 0; i < elements.length; i++) {
-            if (elements[i].style.display === "none") {
-                elements[i].style.display = "block";
-            } else {
-                elements[i].style.display = "none";
-            }
-        }
-    }
-</script>
 <?php require '../app/Views/footer.phtml' ?>

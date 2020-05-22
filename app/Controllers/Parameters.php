@@ -16,19 +16,17 @@ class Parameters extends Controller
 
     public function submit()
     {
-        if(isset($_POST['check-submit']))
-        {
+        if (isset($_POST['check-submit'])) {
             $validation = new ParametersValidation($_POST);
-            $test = new KidneyDisease($_POST);
-            $test->generateDisease();
 
-            if(!$validation->isPassed())
-            {
+            if (!$validation->isPassed()) {
                 echo $this->view->render('Check/index.phtml', [
                     'errors' => $validation->getError()
                 ]);
-            }
-            else {
+            } else {
+                $test = new KidneyDisease($_POST);
+                $test->generateTests();
+
                 echo $this->view->render('Check/index.phtml', [
                     'success' => "Submited"
                 ]);

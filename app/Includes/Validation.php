@@ -16,7 +16,6 @@ class Validation
             if ($key !== "signup-submit") {
                 $this->_data[$key] = $value;
             }
-
         }
 
         $this->validate();
@@ -73,6 +72,7 @@ class Validation
             $this->makeError('password', 'Unesene lozinke se ne podudaraju.');
         }
     }
+
 
     public function validate()
     {

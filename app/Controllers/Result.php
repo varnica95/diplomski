@@ -12,7 +12,7 @@ class Result extends Controller
 {
     public function index()
     {
-        $results = new Results(Session::get("id"), 1);
+        $results = new Results(Session::get("id"));
 
         echo $this->view->render('Results/index.phtml', [
            'row' => $results->getUserResults()
@@ -25,4 +25,16 @@ class Result extends Controller
             'row' => Results::loadDetails($id)
         ]);
     }
+
+    public function delete($id)
+    {
+        Results::sdelete($id);
+
+        $results = new Results(Session::get("id"));
+
+        echo $this->view->render('Results/index.phtml', [
+            'row' => $results->getUserResults()
+        ]);
+    }
+
 }

@@ -84,96 +84,6 @@ li a:hover {
 
 /* login */
 
-
-/* registration */
-
-.register-form {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -350px;
-    margin-left: -250px;
-    height: 679px;
-    width: 500px;
-    background-color: #212121;
-}
-
-input[type="date"]::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-}
-
-#error {
-    border: 2px solid #EA4335;
-    animation: fadeinerror 1s;
-}
-
-.error-label {
-    margin-left: 5%;
-    color: #EA4335;
-    animation: fadeinerrorlabel 0.7s;
-    font-size: 15px;
-}
-
-#success {
-    background-color: #405d27;
-    animation: fadeinsuccess 0.7s;
-}
-
-@keyframes fadeinsuccess {
-    from {
-        background-color: #1a1a1a;
-    }
-    to {
-        background-color: #405d27;
-    }
-}
-
-@keyframes fadeinerror {
-    from {
-        border: 2px solid #ccc;
-    }
-    to {
-        border: 2px solid #EA4335;
-    }
-}
-
-@keyframes fadeinerrorlabel {
-    from {
-        opacity: 0%;
-    }
-    to {
-        opacity: 100%;
-    }
-}
-
-#error-button {
-    display: block;
-    margin-left: 5%;
-    margin-top: 2%;
-    background-color: #EA4335;
-    text-transform: uppercase;
-    max-width: 350px;
-    letter-spacing: 0.5em;
-    transition: all 0.2s cubic-bezier(.4, 0, .2, 1);
-    color: #e2e2e2;
-    cursor: pointer;
-}
-
-#error-div {
-    position: fixed;
-    top: 50%;
-    left: 80%;
-    margin-top: -350px;
-    margin-left: -250px;
-    height: 670px;
-    width: 500px;
-    border: 1px solid red;
-    background-color: #212121;
-}
-
-/* registration// */
-
 /* parameters */
 
 .check-form {
@@ -255,7 +165,7 @@ input[type="date"]::-webkit-inner-spin-button {
     margin: 0 auto 10px auto;
 }
 
-#p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9, #p10, #p11, #p12, #p13 {
+#p1, #p2, #p3, #p4 {
     z-index: 2;
     display: block;
     height: auto;
@@ -263,7 +173,7 @@ input[type="date"]::-webkit-inner-spin-button {
     transition: opacity 1s ease-in-out;
 }
 
-#p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9, #p10, #p11, #p12, #p13 {
+#p2, #p3, #p4 {
     opacity: 0;
     margin-top: 5%;
     height: 0;
@@ -296,96 +206,6 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 #step4:checked ~ #p3 {
-    opacity: 0;
-    display: none;
-}
-
-#step5:checked ~ #p5 {
-    opacity: 1;
-    height: auto;
-}
-
-#step5:checked ~ #p4 {
-    opacity: 0;
-    display: none;
-}
-
-#step6:checked ~ #p6 {
-    opacity: 1;
-    height: auto;
-}
-
-#step6:checked ~ #p5 {
-    opacity: 0;
-    display: none;
-}
-
-#step7:checked ~ #p7 {
-    opacity: 1;
-    height: auto;
-}
-
-#step7:checked ~ #p6 {
-    opacity: 0;
-    display: none;
-}
-
-#step8:checked ~ #p8 {
-    opacity: 1;
-    height: auto;
-}
-
-#step8:checked ~ #p7 {
-    opacity: 0;
-    display: none;
-}
-
-#step9:checked ~ #p9 {
-    opacity: 1;
-    height: auto;
-}
-
-#step9:checked ~ #p8 {
-    opacity: 0;
-    display: none;
-}
-
-#step10:checked ~ #p10 {
-    opacity: 1;
-    height: auto;
-}
-
-#step10:checked ~ #p9 {
-    opacity: 0;
-    display: none;
-}
-
-#step11:checked ~ #p11 {
-    opacity: 1;
-    height: auto;
-}
-
-#step11:checked ~ #p10 {
-    opacity: 0;
-    display: none;
-}
-
-#step12:checked ~ #p12 {
-    opacity: 1;
-    height: auto;
-}
-
-#step12:checked ~ #p11 {
-    opacity: 0;
-    display: none;
-}
-
-#step13:checked ~ #p13 {
-    opacity: 1;
-    height: auto;
-}
-
-#step13:checked ~ #p12 {
     opacity: 0;
     display: none;
 }
