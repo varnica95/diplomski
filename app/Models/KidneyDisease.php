@@ -57,19 +57,20 @@ class KidneyDisease extends Model
         var_dump($hemo_anemia);
         var_dump($extraTest["ckd_anemia"]);
         var_dump($anemia);
-        $ckd = $this->checkDiseaseAzure([$systolic, $sg, $albumin_class, $sugar_class, $rbc,
+
+        $fromAzure = $this->checkDiseaseAzure([$systolic, $sg, $albumin_class, $sugar_class, $rbc,
             $bu, $sc, $sod, $pot, $hemo, (int)$wbcc * 1000,
             $rbcc, $hypertension, $anemia]);
 
         $data = [];
         array_push($data, $systolic, $diastolic, $sg, $al, $alscRatio,
                     $su, $rbc, $bu, $sc, $sod, $pot, $hemo,
-                    $wbcc, $rbcc, $ckd, $extraTest['bun_sc_ratio'],
+                    $wbcc, $rbcc, $fromAzure["ckd"], $fromAzure["ckdprecision"], $extraTest['bun_sc_ratio'],
                     $extraTest['clearance_creatinine'], $extraTest['gfr'],
                     array_values($this->getNotes()));
 
 
-        //$this->insert("details_table", $data);
+       $this->insert("details_table", $data);
     }
 
     public function generateExtraTest()
@@ -152,7 +153,10 @@ class KidneyDisease extends Model
 
         $this->checkIfPositive($class, $precision);
 
-        return $class;
+        return [
+            "ckd" => $class,
+            "ckdprecision" => $precision
+        ];
     }
 
     private function checkIfPositive($class, $precision)

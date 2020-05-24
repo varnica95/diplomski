@@ -12,22 +12,34 @@
         </thead>
         <tbody>
         <?php
-            if(isset($row)):
-                foreach ($row as $key => $value):
-        ?>
-            <tr <?php if($value["ckd"] == 1) {
-                echo 'id="neg"';
-            } else {
-                echo 'id="pos"';
-            }  ?>>
-                <td><?php echo $key += 1; ?></td>
-                <td><?php echo $value["created"]; ?></td>
-                <td>
-                    <a href="/result/details/<?php echo $value["id"]; ?>">Pogledaj</a>
-                    <a href="/result/delete/<?php echo $value["id"]; ?>">Obriši</a>
-                </td>
-            </tr>
-        <?php endforeach;
+        if (isset($row)):
+            foreach ($row as $key => $value):
+                ?>
+                <tr <?php if ($value["ckd"] == 1) {
+                    if ($value["ckdprecision"] < 0.3333) {
+                        echo 'id="neg"';
+                    } else if ($value["ckdprecision"] <= 0.3333 || $value["ckdprecision"] < 0.6666) {
+                        echo 'id="halfsure"';
+                    } else {
+                        echo 'id="pos"';
+                    }
+                } else {
+                    if ($value["ckdprecision"] < 0.3333) {
+                        echo 'id="pos"';
+                    } else if ($value["ckdprecision"] <= 0.3333 || $value["ckdprecision"] < 0.6666) {
+                        echo 'id="halfsure"';
+                    } else {
+                        echo 'id="neg"';
+                    }
+                } ?>>
+                    <td data-label="br."><?php echo $key += 1; ?></td>
+                    <td data-label="Nalaz izdan"><?php echo $value["created"]; ?></td>
+                    <td>
+                        <a href="/user/details/<?php echo $value["id"]; ?>">Pogledaj</a>
+                        <a href="/user/delete/<?php echo $value["id"]; ?>">Obriši</a>
+                    </td>
+                </tr>
+            <?php endforeach;
         endif; ?>
         </tbody>
     </table>

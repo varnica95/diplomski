@@ -130,9 +130,8 @@ class Model
             }
 
             if ($table == "details_table") {
-                var_dump($data);
-                $sql = "INSERT INTO details_table (user_id, bp_sys, bp_dia, sg, al, alsc_ratio, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, bun_sc_ratio, crcl, gfr, bp_note, rbc_note, hemo_note, su_note, bu_note, sc_note, sod_note, pot_note, sg_note, al_note, wbcc_note, rbcc_note, ckd_note, bun_sc_ratio_note, crcl_note, crclanem_note, gfr_note, created) 
-                        VALUES (:user_id, :bp_sys, :bp_dia, :sg, :al, :alsc_ratio, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :bun_sc_ratio, :crcl, :gfr, :bp_note, :rbc_note, :hemo_note, :su_note, :bu_note, :sc_note, :sod_note, :pot_note, :sg_note, :al_note, :wbcc_note, :rbcc_note, :ckd_note, :bun_sc_ratio_note, :crcl_note, :crclanem_note, :gfr_note, :created)";
+                $sql = "INSERT INTO details_table (user_id, bp_sys, bp_dia, sg, al, alsc_ratio, su, rbc, bu, sc, sod, pot, hemo, wbcc, rbcc, ckd, ckdprecision, bun_sc_ratio, crcl, gfr, bp_note, rbc_note, hemo_note, su_note, bu_note, sc_note, sod_note, pot_note, sg_note, al_note, wbcc_note, rbcc_note, ckd_note, bun_sc_ratio_note, crcl_note, crcl_anem_note, gfr_note, created) 
+                        VALUES (:user_id, :bp_sys, :bp_dia, :sg, :al, :alsc_ratio, :su, :rbc, :bu, :sc, :sod, :pot, :hemo, :wbcc, :rbcc, :ckd, :ckdprecision, :bun_sc_ratio, :crcl, :gfr, :bp_note, :rbc_note, :hemo_note, :su_note, :bu_note, :sc_note, :sod_note, :pot_note, :sg_note, :al_note, :wbcc_note, :rbcc_note, :ckd_note, :bun_sc_ratio_note, :crcl_note, :crcl_anem_note, :gfr_note, :created)";
                 $stmt = $this->connection->prepare($sql);
                 $stmt->bindValue(":user_id", Session::get("id"));
                 $stmt->bindValue(":bp_sys", $data[0]);
@@ -150,29 +149,30 @@ class Model
                 $stmt->bindValue(":wbcc", $data[12]);
                 $stmt->bindValue(":rbcc", $data[13]);
                 $stmt->bindValue(":ckd", $data[14]);
-                $stmt->bindValue(":bun_sc_ratio", $data[15]);
-                $stmt->bindValue(":crcl", $data[16]);
-                $stmt->bindValue(":gfr", $data[17]);
-                $stmt->bindValue(":bp_note", $data[18][0]);
-                $stmt->bindValue(":rbc_note", $data[18][1]);
-                $stmt->bindValue(":hemo_note", $data[18][2]);
-                $stmt->bindValue(":su_note", $data[18][3]);
-                $stmt->bindValue(":bu_note", $data[18][4]);
-                $stmt->bindValue(":sc_note", $data[18][5]);
-                $stmt->bindValue(":sod_note", $data[18][6]);
-                $stmt->bindValue(":pot_note", $data[18][7]);
-                $stmt->bindValue(":sg_note", $data[18][8]);
-                $stmt->bindValue(":al_note", $data[18][9]);
-                $stmt->bindValue(":rbcc_note", $data[18][10]);
-                $stmt->bindValue(":wbcc_note", $data[18][11]);
-                $stmt->bindValue(":ckd_note", $data[18][12]);
-                $stmt->bindValue(":bun_sc_ratio_note", $data[18][13]);
-                $stmt->bindValue(":crcl_note", $data[18][14]);
-                $stmt->bindValue(":crclanem_note", $data[18][15]);
-                $stmt->bindValue(":gfr_note", $data[18][16]);
+                $stmt->bindValue(":ckdprecision", $data[15]);
+                $stmt->bindValue(":bun_sc_ratio", $data[16]);
+                $stmt->bindValue(":crcl", $data[17]);
+                $stmt->bindValue(":gfr", $data[18]);
+                $stmt->bindValue(":bp_note", $data[19][0]);
+                $stmt->bindValue(":rbc_note", $data[19][1]);
+                $stmt->bindValue(":hemo_note", $data[19][2]);
+                $stmt->bindValue(":su_note", $data[19][3]);
+                $stmt->bindValue(":bu_note", $data[19][4]);
+                $stmt->bindValue(":sc_note", $data[19][5]);
+                $stmt->bindValue(":sod_note", $data[19][6]);
+                $stmt->bindValue(":pot_note", $data[19][7]);
+                $stmt->bindValue(":sg_note", $data[19][8]);
+                $stmt->bindValue(":al_note", $data[19][9]);
+                $stmt->bindValue(":rbcc_note", $data[19][10]);
+                $stmt->bindValue(":wbcc_note", $data[19][11]);
+                $stmt->bindValue(":ckd_note", $data[19][12]);
+                $stmt->bindValue(":bun_sc_ratio_note", $data[19][13]);
+                $stmt->bindValue(":crcl_note", $data[19][14]);
+                $stmt->bindValue(":crcl_anem_note", $data[19][15]);
+                $stmt->bindValue(":gfr_note", $data[19][16]);
                 $stmt->bindValue(':created', date("Y-m-d H:i:s"));
             }
-
+            var_dump($data);
             $stmt->execute();
 
         } catch (\PDOException $e) {

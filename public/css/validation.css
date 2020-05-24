@@ -1,0 +1,50 @@
+#error {
+    border: 2px solid #EA4335;
+}
+
+.error-label {
+    margin-left: 5%;
+    color: #EA4335;
+    font-size: 20px;
+}
+
+#success {
+    font-size: 20px;
+    line-height: 25px;
+    background-color: #405d27;
+}
+
+#again-button {
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 5%;
+    margin-top: 2%;
+    max-width: 350px;
+    color: #e2e2e2;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#pos {
+    background-color: #c94c4c;
+    border-bottom: 1px solid #e2e2e2;
+    color: #e2e2e2;
+    padding: 20px;
+    height: 50px;
+}
+
+#halfsure {
+    background-color: #b38600;
+    border-bottom: 1px solid #e2e2e2;
+    color: #e2e2e2;
+    padding: 20px;
+    height: 50px;
+}
+
+#neg {
+    background-color: #405d27;
+    border-bottom: 1px solid #e2e2e2;
+    color: #e2e2e2;
+    padding: 20px;
+    height: 50px;
+}

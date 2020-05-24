@@ -1,0 +1,123 @@
+/* navigation bar */
+
+@media (max-width: 768px) {
+    .toggle-button{ display: flex}
+
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links{
+        width: 100%;
+    }
+
+    .nav-links ul{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .nav-links li{
+        text-align: center;
+    }
+
+    .nav-links li a{
+       padding: .5rem 1rem;
+    }
+
+    .nav-links.active{
+        display: flex;
+    }
+}
+
+/* navigation bar // */
+
+
+/* results table */
+
+@media (max-width: 768px) {
+
+    .results-table{
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        z-index: 15;
+        top: 50%;
+        left: 50%;
+        margin: -100px 0 0 -150px;
+    }
+
+    .results-table table thead{
+        display: none;
+    }
+
+    .results-table table, .results-table table tbody,
+    .results-table table tr, .results-table table td{
+        display: block;
+    }
+
+    .results-table table td{
+         text-align: right;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .results-table table td{
+        text-align: right;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .results-table table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: -7%;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+
+/* results table // */
+
+/* content table */
+
+@media (max-width: 768px) {
+
+    .content, .header, .subheader { width: 90%;}
+
+    .content-table{ width: auto}
+    .content-table thead{
+        display: none;
+
+    }
+
+    .content-table, .content-table tbody,
+    .content-table tr, .content-table td{
+        display: block;
+    }
+
+    .content-table td{
+        text-align: right;
+        padding-left: 15px;
+        position: relative;
+        font-size: 15px;
+    }
+
+    .content-table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+
+/* content table // */

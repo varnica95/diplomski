@@ -16,7 +16,7 @@ class Results extends Model
 
     public function getUserResults()
     {
-       return $this->load("details_table", "user_id", $this->user_id, ["id", "ckd", "created"]);
+       return $this->load("details_table", "user_id", $this->user_id, ["id", "ckd", "ckdprecision", "created"]);
     }
 
     public static function loadDetails($id)

@@ -2,28 +2,35 @@
 <html>
 <head>
     <title>Web aplikazija za bolesti bubrega</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="/css/registration.css">
+    <link rel="stylesheet" type="text/css" href="/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="/css/validation.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css">
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <?php if(!\App\Includes\Session::get("id")):?>
+
+
+<nav class="navbar">
+    <div class="nav-links">
+    <ul>
+        <?php if (!\App\Includes\Session::get("id")): ?>
             <li><a href="/home/">Početna</a></li>
             <li><a href="/login/">Prijava</a></li>
             <li><a href="/registration/">Registracija</a></li>
-            <?php endif;?>
-            <?php if(\App\Includes\Session::get("id")):?>
-                <li><a href="/home/">Početna</a></li>
+        <?php endif; ?>
+        <?php if (\App\Includes\Session::get("id")): ?>
+            <li><a href="/home/">Početna</a></li>
             <li><a href="/parameters/">Unos nalaza</a></li>
-            <li><a href="/result/">Moji nalazi</a></li>
-            <li style="float:right"><a href="/login/logout">Odjava</a></li>
-                <?php if(isset($userlogged)):?>
-                    <li style="float:right"><a><?php echo $userlogged; ?></a></li>
-                <?php endif;?>
-            <?php endif;?>
-            </div>
-        </ul>
-    </nav>
+            <li><a href="/user/results/index">Moji nalazi</a></li>
+            <li style="float:right"><a href="/user/logout">Odjava</a></li>
+            <?php if (isset($userlogged)): ?>
+                <li style="float:right"><a><?php echo $userlogged; ?></a></li>
+            <?php endif; ?>
+        <?php endif; ?>
+        </div>
+    </ul>
+</nav>

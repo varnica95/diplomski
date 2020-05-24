@@ -5,21 +5,25 @@
 <div class="content">
 
     <table class="content-table">
+        <thead>
         <tr>
             <th>Čimbenik</th>
             <th>Moja vrijednost</th>
             <th>Referentna vrijednost</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-            <td>Sistolički krvni tlak</td>
-            <td><?php echo $row[0]["bp_sys"] . " mmHg"; ?></td>
-            <td><140 mmHg</td>
+            <td data-label="Čimbenik">Sistolički krvni tlak</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["bp_sys"] . " mmHg"; ?></td>
+            <td data-label="Referentna vrijednost"><140 mmHg</td>
         </tr>
         <tr>
-            <td>Dijastolički krvni tlak</td>
-            <td><?php echo $row[0]["bp_dia"] . " mmHg"; ?></td>
-            <td><90 mmHg</td>
+            <td data-label="Čimbenik">Dijastolički krvni tlak</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["bp_dia"] . " mmHg"; ?></td>
+            <td data-label="Referentna vrijednost"><90 mmHg</td>
         </tr>
+        </tbody>
     </table>
 
 
@@ -34,20 +38,23 @@
 <div class="content">
 
     <table class="content-table">
+        <thead>
         <tr>
             <th>Čimbenik</th>
             <th>Moja vrijednost</th>
             <th>Referentna vrijednost</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-            <td>Eritrociti</td>
-            <td><?php echo $row[0]["rbc"] . " x10<sup>6</sup>/mm<sup>3</sup>"; ?></td>
-            <td>&sim;5 x10<sup>6</sup>/mm<sup>3</sup></td>
+            <td data-label="Čimbenik">Eritrociti</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["rbc"] . " x10<sup>6</sup>/mm<sup>3</sup>"; ?></td>
+            <td data-label="Referentna vrijednost">&sim;5 x10<sup>6</sup>/mm<sup>3</sup></>
         </tr>
         <tr>
-            <td>Hemoglobin</td>
-            <td><?php echo $row[0]["hemo"] . " g/dL"; ?></td>
-            <td>
+            <td data-label="Čimbenik">Hemoglobin</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["hemo"] . " g/dL"; ?></td>
+            <td data-label="Referentna vrijednost">
                 <?php if(\App\Includes\Session::get("gender") == "Male"): ?>
                     14 - 18 g/dL
                 <?php else: ?>
@@ -55,6 +62,7 @@
                 <?php endif; ?>
             </td>
         </tr>
+        </tbody>
     </table>
 
     <div class="lines">
@@ -68,25 +76,28 @@
 <div class="content">
 
     <table class="content-table">
+        <thead>
         <tr>
             <th>Čimbenik</th>
             <th>Moja vrijednost</th>
             <th>Referentna vrijednost</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-            <td>Glukoza</td>
-            <td><?php echo $row[0]["su"] . " mmol/L"; ?></td>
-            <td>2.8 - 6.1 mmol/L</td>
+            <td data-label="Čimbenik">Glukoza</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["su"] . " mmol/L"; ?></td>
+            <td data-label="Referentna vrijednost">2.8 - 6.1 mmol/L</td>
         </tr>
         <tr>
-            <td>Ureja</td>
-            <td><?php echo $row[0]["bu"] . " mmol/L"; ?></td>
-            <td>2.8 - 8.3 mmol/L</td>
+            <td data-label="Čimbenik">>Ureja</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["bu"] . " mmol/L"; ?></td>
+            <td data-label="Referentna vrijednost">2.8 - 8.3 mmol/L</td>
         </tr>
         <tr>
-            <td>Serumski kreatinin</td>
-            <td><?php echo $row[0]["sc"] . " μmol/L"; ?></td>
-            <td>
+            <td data-label="Čimbenik">Serumski kreatinin</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["sc"] . " μmol/L"; ?></td>
+            <td data-label="Referentna vrijednost">
                 <?php if(\App\Includes\Session::get("gender") == "Male"): ?>
                     79 - 125 μmol/L
                 <?php else: ?>
@@ -95,15 +106,16 @@
             </td>
         </tr>
         <tr>
-            <td>Natrij</td>
-            <td><?php echo $row[0]["sod"] . " mmol/L"; ?></td>
-            <td>136 - 145 mmol/L</td>
+            <td data-label="Čimbenik">Natrij</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["sod"] . " mmol/L"; ?></td>
+            <td data-label="Referentna vrijednost">136 - 145 mmol/L</td>
         </tr>
         <tr>
-            <td>Kalij</td>
-            <td><?php echo $row[0]["pot"] . " mmol/L"; ?></td>
-            <td>3.5 - 5.3 mmol/L</td>
+            <td data-label="Čimbenik">Kalij</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["pot"] . " mmol/L"; ?></td>
+            <td data-label="Referentna vrijednost">3.5 - 5.3 mmol/L</td>
         </tr>
+        </tbody>
     </table>
 
     <div class="lines">
@@ -118,25 +130,28 @@
 <div class="content">
 
     <table class="content-table">
+        <thead>
         <tr>
             <th>Čimbenik</th>
             <th>Moja vrijednost</th>
             <th>Referentna vrijednost</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-            <td>Specifična težina urina</td>
-            <td><?php echo $row[0]["sg"]; ?></td>
-            <td>1.001 - 1.035</td>
+            <td data-label="Čimbenik">Specifična težina urina</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["sg"]; ?></td>
+            <td data-label="Referentna vrijednost">1.001 - 1.035</td>
         </tr>
         <tr>
-            <td>Albumin</td>
-            <td><?php echo $row[0]["al"] . " mg/danu"; ?></td>
-            <td><30 mg/danu</td>
+            <td data-label="Čimbenik">Albumin</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["al"] . " mg/danu"; ?></td>
+            <td data-label="Referentna vrijednost"><30 mg/danu</td>
         </tr>
         <tr>
-            <td>Omjer albumin:kreatinin*</td>
-            <td><?php echo $row[0]["alsc_ratio"] . " mg/mmol"; ?></td>
-            <td>
+            <td data-label="Čimbenik">Omjer albumin:kreatinin*</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["alsc_ratio"] . " mg/mmol"; ?></td>
+            <td data-label="Referentna vrijednost">
                 <?php if(\App\Includes\Session::get("gender") == "Male"): ?>
                     <2 mg/mmol
                 <?php else: ?>
@@ -145,18 +160,19 @@
             </td>
         </tr>
         <tr>
-            <td>Leukociti</td>
-            <td><?php echo $row[0]["wbcc"] . " x10<sup>3</sup>/ml"; ?></td>
-            <td>&le;10 x10<sup>3</sup>/ml</td>
+            <td data-label="Čimbenik">Leukociti</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["wbcc"] . " x10<sup>3</sup>/ml"; ?></td>
+            <td data-label="Referentna vrijednost">&le;10 x10<sup>3</sup>/ml</td>
         </tr>
         <tr>
-            <td>Eritrociti</td>
-            <td><?php echo $row[0]["rbcc"]; ?></td>
-            <td>&le;3</td>
+            <td data-label="Čimbenik">Eritrociti</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["rbcc"]; ?></td>
+            <td data-label="Referentna vrijednost">&le;3</td>
         </tr>
+        </tbody>
     </table>
     <div class="table-info">
-        * Ponekad se po omjeru albumina i kreatinina može otkriti albuminurija. Referentne vrijednosti:
+        * Ponekad se po omjeru albumina i kreatinina može otkriti albuminurija. <br> Referentne vrijednosti:
         <?php if(\App\Includes\Session::get("gender") == "Male"): ?>
             mikroalbuminurija 2 - 20 mg/mmol, dijabetička nefropatija >20 mg/mmol.
         <?php else: ?>
@@ -176,19 +192,22 @@
 <div class="content">
     <div class="subheader">5.1. Akutno zatajenje bubrega</div>
     <table class="content-table">
+        <thead>
         <tr>
-            <th>Čimbenik</th>
+            <td data-label="Čimbenik">Čimbenik</th>
             <th>Moja vrijednost</th>
             <th>Referentna vrijednost</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-            <td>Omjer ureja:kreatinin*</td>
-            <td><?php echo $row[0]["bun_sc_ratio"] . " mg/dL"; ?></td>
-            <td>&le;20 mg/dL</td>
+            <td data-label="Čimbenik">Omjer ureja:kreatinin*</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["bun_sc_ratio"] . " mg/dL"; ?></td>
+            <td data-label="Referentna vrijednost">&le;20 mg/dL</td>
         </tr>
     </table>
     <div class="table-info">
-        * Omjer ureje i kreatinina koji je veći od 20 često ukazuje na prerenalnu azotemiju,
+        * Omjer ureje i kreatinina koji je veći od 20 često ukazuje na prerenalnu azotemiju, <br>
         dok omjer 10 - 15 ukazuje na renalnu.
     </div>
 
@@ -206,26 +225,25 @@
             <th>Referentna vrijednost</th>
         </tr>
         <tr>
-            <td>Klirens kreatinina*</td>
-            <td><?php echo $row[0]["crcl"] . " mL/min"; ?></td>
-            <td>>50 mL/min</td>
+            <td data-label="Čimbenik">Klirens kreatinina*</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["crcl"] . " mL/min"; ?></td>
+            <td data-label="Referentna vrijednost">>50 mL/min</td>
         </tr>
         <tr>
-            <td>eGFR**</td>
-            <td><?php echo $row[0]["gfr"] . " mL/min/1.72mm<sup>2</sup>"; ?></td>
-            <td>>90 mL/min/1.72mm<sup>2</sup></td>
+            <td data-label="Čimbenik">eGFR**</td>
+            <td data-label="Moja vrijednost"><?php echo $row[0]["gfr"] . " mL/min/1.72mm<sup>2</sup>"; ?></td>
+            <td data-label="Referentna vrijednost">>90 mL/min/1.72mm<sup>2</sup></td>
         </tr>
+        </tbody>
     </table>
     <div class="table-info">
-        * Klirens kreatinina se dobije pomoću Cockcroft-Gaultove jednadžbe. Stupnjevi zatajenja:
-        blagi 30 - 50 mL/min, umjereni 10 - 29 mL/min, teški <10 mL/min, dijaliza <5 mL/min. <br>
-        ** eGFR se dobije pomoću jednadžbe za prehranu kod bolesti bubrega (MDRD). Stadiji kronične bubrežne
-        bolesti: 1. stadij 	&ge;90, 2. stadij 60 - 89, 3. stadij 30 - 59, 4. 15 - 29, 5. stadij <15.
+        * Klirens kreatinina se dobije pomoću Cockcroft-Gaultove jednadžbe.<br>
+        ** eGFR se dobije pomoću jednadžbe za prehranu kod bolesti bubrega (MDRD).
     </div>
 
     <div class="lines">
         <div class="note">
-            <?php echo "Biljeska: ". "<br><br> Klirens kreatinina <br>" . $row[0]["crcl_note"] . " " .  $row[0]["crclanem_note"]
+            <?php echo "Biljeska: ". "<br><br> Klirens kreatinina <br>" . $row[0]["crcl_note"] . " " .  $row[0]["crcl_anem_note"]
             . "<br><br> Procjenjena vrijednost GF <br>" . $row[0]["gfr_note"] . " " . $row[0]["ckd_note"]; ?>
         </div>
     </div>

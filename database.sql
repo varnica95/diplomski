@@ -20,41 +20,6 @@ CREATE TABLE rememberme(
                            hash LONGTEXT
 );
 
-
-
-CREATE TABLE user_table(
-                           id int(11) auto_increment primary key,
-                           user_id int(11) NOT NULL,
-                           bp_sys VARCHAR(10) NOT NULL ,
-                           bp_dia VARCHAR(10) NOT NULL ,
-                           sg VARCHAR(10) NOT NULL ,
-                           al VARCHAR(10) NOT NULL ,
-                           su VARCHAR(10) NOT NULL ,
-                           rbc VARCHAR(10) NOT NULL ,
-                           bu VARCHAR(10) NOT NULL ,
-                           sc VARCHAR(10) NOT NULL ,
-                           sod VARCHAR(10) NOT NULL ,
-                           pot VARCHAR(10) NOT NULL ,
-                           hemo VARCHAR(10) NOT NULL ,
-                           wbcc VARCHAR(10) NOT NULL ,
-                           rbcc VARCHAR(10) NOT NULL ,
-                           ckd VARCHAR(10) NOT NULL ,
-                           bp_note LONGTEXT NOT NULL ,
-                           sg_note LONGTEXT NOT NULL ,
-                           al_note LONGTEXT NOT NULL ,
-                           su_note LONGTEXT NOT NULL ,
-                           rbc_note LONGTEXT NOT NULL ,
-                           bu_note LONGTEXT NOT NULL ,
-                           sc_note LONGTEXT NOT NULL ,
-                           sod_note LONGTEXT NOT NULL ,
-                           pot_note LONGTEXT NOT NULL ,
-                           hemo_note LONGTEXT NOT NULL ,
-                           wbcc_note LONGTEXT NOT NULL ,
-                           rbcc_note LONGTEXT NOT NULL ,
-                           ckd_note LONGTEXT NOT NULL ,
-                           created DATETIME NOT NULL
-);
-
 CREATE TABLE parameters_notes
 (
     id    INT(11) PRIMARY KEY ,
@@ -136,6 +101,7 @@ CREATE TABLE details_table(
                            wbcc VARCHAR(10) NOT NULL ,
                            rbcc VARCHAR(10) NOT NULL ,
                            ckd VARCHAR(10) NOT NULL ,
+                           ckdprecision VARCHAR(10) NOT NULL ,
                            bun_sc_ratio VARCHAR(10) NOT NULL ,
                            crcl VARCHAR(10) NOT NULL ,
                            gfr VARCHAR(10) NOT NULL ,

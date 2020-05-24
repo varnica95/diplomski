@@ -4,49 +4,50 @@
 namespace App\Controllers;
 
 
+use App\Core\Config;
 use App\Core\Controller;
+use App\Includes\Cookie;
 use App\Includes\Session;
+use App\Models\Results;
 
 class User extends Controller
 {
-    public function register()
-    {
-
-    }
-
-    public function login()
-    {
-        if (isset($_POST["login-submit"]))
-        {
-
-            if (isset($_POST['remember']))
-                $remember = ($_POST['remember'] === 'on') ? true : false;
-            else
-                $remember = false;
-
-            $user = new \App\Models\User($_POST);
-
-            if (!$user->userlogin($remember)) {
-                echo $this->view->render('Login/index.phtml', [
-                    'errors' => $user->getError(),
-                ]);
-            } else {
-                echo $this->view->render('Home/index.phtml', [
-                    'userlogged' => "Welcome, ". Session::get("firstname") . " " . Session::get("lastname")
-                ]);
-            }
-        }
-
-    }
 
     public function results()
     {
+        $results = new Results(Session::get("id"));
+        echo $this->view->render('Results/index.phtml', [
+            'row' => $results->getUserResults()
+        ]);
+    }
+
+    public function details($id)
+    {
+        echo $this->view->render('Results/details.phtml', [
+            'row' => Results::loadDetails($id)
+        ]);
 
     }
 
+    public function delete($id)
+    {
+        Results::sdelete($id);
+
+        $results = new Results(Session::get("id"));
+
+        echo $this->view->render('Results/index.phtml', [
+            'row' => $results->getUserResults()
+        ]);
+    }
+
+
     public function logout()
     {
+        \App\Models\User::deletecookie(Session::get('id'));
+        Session::destroy();
+        Cookie::delete(Config::getInstance()->getConfig("rememberme/cookie_name"));
 
+        echo $this->view->render('Home/index.phtml');
     }
 
     public function settings()
