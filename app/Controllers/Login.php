@@ -37,12 +37,4 @@ class Login extends Controller
         }
     }
 
-    //public function logout()
-  //  {
-    //    User::deletecookie(Session::get('id'));
-      //  Session::destroy();
-        //Cookie::delete(Config::getInstance()->getConfig("rememberme/cookie_name"));
-
-        //$this->index();
-   // }
 }
