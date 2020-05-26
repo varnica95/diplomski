@@ -22,14 +22,14 @@ class User extends Controller
             $validation = new ParametersValidation($_POST);
 
             if (!$validation->isPassed()) {
-                echo $this->view->render('Check/index.phtml', [
+                echo $this->view->render('Predict/index.phtml', [
                     'errors' => $validation->getError()
                 ]);
             } else {
                 $test = new Kidney($_POST);
                 $test->generateTests();
 
-                echo $this->view->render('Check/index.phtml', [
+                echo $this->view->render('Predict/index.phtml', [
                     'success' => "Submited"
                 ]);
             }

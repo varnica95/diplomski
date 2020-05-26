@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Parameters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Parameters.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Check/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Predict/index.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +44,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="diplomski: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="diplomski: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="details_table: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -185,12 +180,24 @@
       <workItem from="1590438286064" duration="3757000" />
       <workItem from="1590442825358" duration="4484000" />
       <workItem from="1590491533737" duration="5550000" />
-      <workItem from="1590518800499" duration="2245000" />
+      <workItem from="1590518800499" duration="3952000" />
     </task>
+    <task id="LOCAL-00001" summary="removed comment in Login.php">
+      <created>1590525393884</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590525393884</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="removed comment in Login.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed comment in Login.php" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1588668149156">
@@ -224,10 +231,10 @@
     </state>
     <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590183188517" />
     <state x="693" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1053@0.0.1920.1053" timestamp="1590438474754" />
-    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2" timestamp="1590525378082">
+    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2" timestamp="1590525393752">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2/0.0.1920.1053@0.0.1920.1053" timestamp="1590525378082" />
+    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2/0.0.1920.1053@0.0.1920.1053" timestamp="1590525393752" />
     <state x="743" y="277" width="424" height="479" key="FileChooserDialogImpl" timestamp="1584548714896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -311,6 +318,10 @@
     </state>
     <state x="746" y="394" width="417" height="244" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588668572133" />
     <state x="746" y="399" width="310" height="243" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1920.1053@0.0.1920.1053" timestamp="1590443879701" />
+    <state x="693" y="334" width="526" height="378" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1590528853815">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state x="693" y="334" width="526" height="378" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1920.1053@0.0.1920.1053" timestamp="1590528853815" />
     <state x="439" y="111" width="1031" height="810" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589541465749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
