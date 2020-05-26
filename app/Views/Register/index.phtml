@@ -1,7 +1,7 @@
 <?php require '../app/Views/header.phtml'; ?>
 
 <div class="register-form">
-    <form class="signup-form" action="/registration/signup" method="POST">
+    <form class="signup-form" action="/registration/signup/" method="POST">
         <input id='step2' type='checkbox'>
         <input id='step3' type='checkbox'>
 
@@ -104,7 +104,7 @@
                     <h3 class="page-text">Molimo upišite lozinku:</h3>
                 </div>
 
-                <input type="password" name="password" placeholder="Lozinka"><br>
+                <input style="margin-bottom: 5%" type="password" name="password" placeholder="Lozinka"><br>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step2' class="back">
@@ -129,7 +129,7 @@
                     <h3 class="page-text">Molimo ponovno upišite lozinku zbog potvrde:</h3>
                 </div>
 
-                <input type="password" name="password-again" placeholder="Ponovno upišite lozinku"><br>
+                <input style="margin-bottom: 5%" type="password" name="password-again" placeholder="Ponovno upišite lozinku"><br>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step3' class="back">

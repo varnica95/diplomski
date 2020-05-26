@@ -110,4 +110,30 @@ class User extends Model
     {
         self::static_delete('rememberme', 'user_id', $id);
     }
+
+    public function getUserSettings()
+    {
+        return $this->load("users", "id", Session::get("id"));
+    }
+
+    public function getpassword()
+    {
+        $password = $this->load("users", "id", Session::get("id"), ["password"]);
+        return  $password[0]["password"];
+    }
+
+    public function updatepassword()
+    {
+
+       $check = password_verify($this->data["current_password"], $this->getpassword());
+
+        if(!$check)
+        {
+            $this->makeError("wrong_password", "Lozinke se ne podudaraju");
+        }else{
+            $hash = password_hash($this->data['new_password'], PASSWORD_DEFAULT);
+
+            $this->update("users", ["password", "id"], [$hash, Session::get("id")]);
+        }
+    }
 }

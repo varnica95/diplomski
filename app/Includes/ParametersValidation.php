@@ -27,7 +27,7 @@ class ParametersValidation
         foreach ($this->_data as $key => $value) {
             if ($key !== "check-submit") {
                 if (empty(($value))) {
-                    $this->makeError($key, "Fields cannot be empty.");
+                    $this->makeError($key, "Polja ne smiju biti prazna.");
                 }
             }
         }
@@ -39,11 +39,11 @@ class ParametersValidation
             if ($key !== "check-submit") {
                 if ($key === "sg") {
                     if (!strpos($value, ".")) {
-                        $this->makeError($key . "-notfloat", "Must have a decimal point.");
+                        $this->makeError($key . "-notfloat", "Polje mora biti decimalni broj.");
                     }
                 } else {
                     if (!is_numeric($value))
-                        $this->makeError($key . "-notnumber", "Fields must have a numeric value.");
+                        $this->makeError($key . "-notnumber", "Polje mora biti broj.");
                 }
             }
         }

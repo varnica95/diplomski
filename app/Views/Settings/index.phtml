@@ -1,0 +1,139 @@
+<?php require '../app/Views/header.phtml'; ?>
+
+<div class="register-form">
+    <form class="signup-form" action="/user/update/" method="POST">
+        <input id='step2' type='checkbox'>
+        <input id='step3' type='checkbox'>
+
+        <?php if(!isset($errors["empty"]) && !isset($errors["password"]) && !isset($errors["wrong_password"]) && isset($success)):?>
+
+        <div id="p1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>Promjena uspješna</h3>
+                    </div>
+                    <div id="success">&#10004;Uspješno ste promjenili korisničke podatke.</div>
+                </div>
+            </div>
+
+        <?php elseif (isset($errors)):?>
+
+            <div id="p1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3>Promjena podataka nije uspjela</h3>
+                    </div>
+                    <?php if(isset($errors["empty"])):?><label class="error-label">*<?php echo $errors["empty"];?></label><br> <?php endif;?>
+                    <?php if(isset($errors["password"])):?><label class="error-label">*<?php echo $errors["password"];?></label><br> <?php endif;?>
+                    <?php if(isset($errors["wrong_password"])):?><label class="error-label">*<?php echo $errors["wrong_password"];?></label><br> <?php endif;?>
+
+                    <a id="again-button" href="/user/settings/">Pokušajte ponovno</a>
+                </div>
+            </div>
+
+        <?php else:?>
+
+
+        <div id="p1">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Vaši osobni podaci</h3>
+                </div>
+                <div class="page-heading">
+                    <h3 class="page-text">Ime i prezime:</h3>
+                </div>
+
+                <input readonly type="text" name="firstname" value="<?php echo $row->data['firstname'] ?>"">
+                <input readonly type="text" name="lastname" value="<?php echo $row->data['lastname'] ?>"><br>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Vaše godište:</h3>
+                </div>
+
+                <input readonly type="date" name="birthdate" value="<?php echo date("Y-m-d", strtotime($row->data['birthdate'])); ?>"><br>
+                <input readonly type="text" name="lastname" value="<?php echo $row->data['age'] . " godina" ?>"><br>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Spol:</h3>
+                </div>
+
+                <input readonly type="text" name="lastname" value="<?php echo $row->data['gender'] ?>"><br>
+
+
+                <div class="page-heading">
+                    <h3 class="page-text">Tjelesnu težinu:</h3>
+                </div>
+
+                <input style="margin-bottom: 5%" readonly type="text" name="lastname" value="<?php echo $row->data['weight'] . " kg" ?>"><br>
+
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step2' class="continue">
+                        <div>&#187;</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="p2">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Podaci o vašem korisničkom računu</h3>
+                </div>
+
+                <div class="page-heading">
+                    <h3 class="page-text">Korisničko ime:</h3>
+                </div>
+
+                <input type="text" name="username" placeholder="Korisničko ime" value="<?php echo $row->data['username'] ?>"><br>
+
+
+                <div class="page-heading">
+                    <h3 class="page-text">Email adresa:</h3>
+                </div>
+
+                <input style="margin-bottom: 5%" type="text" name="email" placeholder="Email adeesa" value="<?php echo $row->data['email'] ?>"><br>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step2' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+                    <label for='step3' class="continue">
+                        <div>&#187;</div>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="p3">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3>Promjenite lozinku</h3>
+                </div>
+
+                <input type="password" name="current_password" placeholder="Trenutna lozinka">
+
+                <input type="password" name="new_password" placeholder="Nova lozinka">
+
+                <input style="margin-bottom: 5%" type="password" name="repeat_password" placeholder="Unesite staru lozinku">
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <label for='step3' class="back">
+                        <div>&#171;</div>
+                    </label>
+
+                    <div class="submit">
+                        <button type="submit" name="update-submit">Ažuriraj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <?php endif; ?>
+    </form>
+</div>
+
+
+<?php require '../app/Views/footer.phtml' ?>

@@ -32,9 +32,7 @@ class Login extends Controller
                     'errors' => $user->getError(),
                 ]);
             } else {
-                echo $this->view->render('Home/index.phtml', [
-                    'userlogged' => "Welcome, ". Session::get("firstname") . " " . Session::get("lastname")
-                ]);
+                echo $this->view->render('Home/index.phtml');
             }
         }
     }

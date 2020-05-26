@@ -330,7 +330,6 @@ trait ParametersHandlerTrait
         }
 
         return [
-            "ckd_anemia" => $ckd_anemia,
             "clearance_creatinine" => $clearance_creatinine,
             "gfr" => $gfr
         ];

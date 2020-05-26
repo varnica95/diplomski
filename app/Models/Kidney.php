@@ -10,7 +10,7 @@ use App\Includes\NoteHandlerTrait;
 use App\Includes\ParametersHandlerTrait;
 use App\Includes\Session;
 
-class KidneyDisease extends Model
+class Kidney extends Model
 {
     use NoteHandlerTrait;
     use ParametersHandlerTrait;
@@ -32,7 +32,7 @@ class KidneyDisease extends Model
 
         $rbc = round($this->data["rbc"], 3);
         $hemo = round($this->data["hemo"], 3);
-        $hemo_anemia = $this->hematologyFactors($rbc, $hemo);
+        $this->hematologyFactors($rbc, $hemo);
 
         $bu = round($this->data["bu"], 3);
         $sc = round($this->data["sc"], 3);
@@ -52,15 +52,9 @@ class KidneyDisease extends Model
 
         $extraTest = $this->generateExtraTest();
 
-        $anemia = $this->isAnemia($hemo_anemia, $extraTest["ckd_anemia"]);
-
-        var_dump($hemo_anemia);
-        var_dump($extraTest["ckd_anemia"]);
-        var_dump($anemia);
-
         $fromAzure = $this->checkDiseaseAzure([$systolic, $sg, $albumin_class, $sugar_class, $rbc,
             $bu, $sc, $sod, $pot, $hemo, (int)$wbcc * 1000,
-            $rbcc, $hypertension, $anemia]);
+            $rbcc, $hypertension]);
 
         $data = [];
         array_push($data, $systolic, $diastolic, $sg, $al, $alscRatio,
@@ -68,7 +62,6 @@ class KidneyDisease extends Model
                     $wbcc, $rbcc, $fromAzure["ckd"], $fromAzure["ckdprecision"], $extraTest['bun_sc_ratio'],
                     $extraTest['clearance_creatinine'], $extraTest['gfr'],
                     array_values($this->getNotes()));
-
 
        $this->insert("details_table", $data);
     }
@@ -86,7 +79,6 @@ class KidneyDisease extends Model
 
         return [
             "bun_sc_ratio" => $acute,
-            "ckd_anemia" => $chronic["ckd_anemia"],
             "clearance_creatinine" => $chronic["clearance_creatinine"],
             "gfr" => $chronic["gfr"]
         ];
@@ -120,8 +112,7 @@ class KidneyDisease extends Model
             \"Hemo\",\n        
             \"Wbcc\",\n        
             \"Rbcc\",\n        
-            \"Htn\",\n        
-            \"Ane\"\n      ],\n      
+            \"Htn\",\n      ],\n      
             \"Values\": [\n        
             [\n          
             \" $data[0] \",\n          
@@ -136,8 +127,7 @@ class KidneyDisease extends Model
             \" $data[9] \",\n          
             \" $data[10] \",\n          
             \" $data[11] \",\n          
-            \" $data[12] \",\n          
-            \" $data[13] \",\n               
+            \" $data[12] \",\n                       
             ]\n      ]\n    }\n  },\n  \"GlobalParameters\": {}\n}",
             CURLOPT_HTTPHEADER => Config::getInstance()->getConfig("azure/header"),
         ));
@@ -145,11 +135,10 @@ class KidneyDisease extends Model
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response;
 
         $result = json_decode($response, true);
-        $class = (int)$result["Results"]["output1"]["value"]["Values"][0][14];
-        $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][15];
+        $class = (int)$result["Results"]["output1"]["value"]["Values"][0][13];
+        $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][14];
 
         $this->checkIfPositive($class, $precision);
 
@@ -177,10 +166,5 @@ class KidneyDisease extends Model
     {
         $details = $this->load("users", "id", Session::get("id"), ["age", "weight"]);
         return $details[0];
-    }
-
-    protected function isAnemia($hemo_anemia, $ckd_anemia)
-    {
-        return ($hemo_anemia || $ckd_anemia)? 1 : 0;
     }
 }

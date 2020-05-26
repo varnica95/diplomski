@@ -25,11 +25,9 @@
         <?php if (\App\Includes\Session::get("id")): ?>
             <li><a href="/home/">Početna</a></li>
             <li><a href="/parameters/">Unos nalaza</a></li>
-            <li><a href="/user/results/index">Moji nalazi</a></li>
+            <li><a href="/result/index">Moji nalazi</a></li>
+            <li><a href="/user/settings">Postavke</a></li>
             <li style="float:right"><a href="/user/logout">Odjava</a></li>
-            <?php if (isset($userlogged)): ?>
-                <li style="float:right"><a><?php echo $userlogged; ?></a></li>
-            <?php endif; ?>
         <?php endif; ?>
         </div>
     </ul>

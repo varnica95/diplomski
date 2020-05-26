@@ -103,8 +103,8 @@ class Model
 
                 $values = explode(",", (":" . implode(",:", array_keys($data))));
                 $values = implode(", ", $values);
-
-                $sql = "INSERT INTO {$table} (" . $fields . ", joined) VALUES (" . $values . ", :joined)";
+                $age = (int)((time()- strtotime($data["birthdate"])) / (3600 * 24 * 365));
+                $sql = "INSERT INTO {$table} (" . $fields . ", joined, age) VALUES (" . $values . ", :joined, :age)";
 
                 $stmt = $this->connection->prepare($sql);
 
@@ -112,7 +112,9 @@ class Model
                     $stmt->bindValue(":" . $key, $value);
                 }
 
-                $stmt->bindValue(':joined', date("Y-m-d H:i:s"));
+                $stmt->bindValue(":joined", date("Y-m-d H:i:s"));
+                $stmt->bindValue(":age", $age);
+
             }
 
             if ($table == "rememberme") {
@@ -165,16 +167,15 @@ class Model
                 $stmt->bindValue(":al_note", $data[19][9]);
                 $stmt->bindValue(":rbcc_note", $data[19][10]);
                 $stmt->bindValue(":wbcc_note", $data[19][11]);
-                $stmt->bindValue(":ckd_note", $data[19][12]);
-                $stmt->bindValue(":bun_sc_ratio_note", $data[19][13]);
+                $stmt->bindValue(":ckd_note", $data[19][16]);
+                $stmt->bindValue(":bun_sc_ratio_note", $data[19][12]);
                 $stmt->bindValue(":crcl_note", $data[19][14]);
-                $stmt->bindValue(":crcl_anem_note", $data[19][15]);
-                $stmt->bindValue(":gfr_note", $data[19][16]);
+                $stmt->bindValue(":crcl_anem_note", $data[19][13]);
+                $stmt->bindValue(":gfr_note", $data[19][15]);
                 $stmt->bindValue(':created', date("Y-m-d H:i:s"));
             }
-            var_dump($data);
-            $stmt->execute();
 
+            $stmt->execute();
         } catch (\PDOException $e) {
             $e->getMessage();
         }
@@ -227,6 +228,25 @@ class Model
 
             return $row->fetch();
         } catch (\PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function update($table, $fields = [], $values = [])
+    {
+        try {
+            $this->connection = Database::getInstance()->getConnection();
+
+            $sql = "UPDATE {$table} SET {$fields[0]} = '{$values[0]}' WHERE {$fields[1]} = '{$values[1]}'";
+
+            $row = $this->connection->query($sql);
+
+            $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+
+            return $row->fetch();
+        }
+        catch (\PDOException $e)
+        {
             $e->getMessage();
         }
     }

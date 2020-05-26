@@ -7,39 +7,34 @@ namespace App\Controllers;
 use App\Core\Config;
 use App\Core\Controller;
 use App\Includes\Cookie;
+use App\Includes\ParametersValidation;
+use App\Includes\ProfileSettingsValidation;
 use App\Includes\Session;
+use App\Models\Kidney;
 use App\Models\Results;
 
 class User extends Controller
 {
 
-    public function results()
+    public function submit()
     {
-        $results = new Results(Session::get("id"));
-        echo $this->view->render('Results/index.phtml', [
-            'row' => $results->getUserResults()
-        ]);
+        if (isset($_POST['check-submit'])) {
+            $validation = new ParametersValidation($_POST);
+
+            if (!$validation->isPassed()) {
+                echo $this->view->render('Check/index.phtml', [
+                    'errors' => $validation->getError()
+                ]);
+            } else {
+                $test = new Kidney($_POST);
+                $test->generateTests();
+
+                echo $this->view->render('Check/index.phtml', [
+                    'success' => "Submited"
+                ]);
+            }
+        }
     }
-
-    public function details($id)
-    {
-        echo $this->view->render('Results/details.phtml', [
-            'row' => Results::loadDetails($id)
-        ]);
-
-    }
-
-    public function delete($id)
-    {
-        Results::sdelete($id);
-
-        $results = new Results(Session::get("id"));
-
-        echo $this->view->render('Results/index.phtml', [
-            'row' => $results->getUserResults()
-        ]);
-    }
-
 
     public function logout()
     {
@@ -52,6 +47,32 @@ class User extends Controller
 
     public function settings()
     {
+        $settings = new \App\Models\User();
 
+        echo $this->view->render('Settings/index.phtml',[
+            "row" =>  $settings->getUserSettings()
+        ]);
     }
+
+    public function update()
+    {
+       if(isset($_POST["update-submit"]))
+       {
+            $validation = new ProfileSettingsValidation($_POST);
+
+           if (!$validation->isPassed()) {
+               echo $this->view->render('Settings/index.phtml', [
+                   'errors' => $validation->getError()
+               ]);
+           } else {
+               $settings = new \App\Models\User($_POST);
+               $settings->updatepassword();
+
+               echo $this->view->render('Settings/index.phtml', [
+                   'success' => "Submited"
+               ]);
+           }
+       }
+    }
+
 }

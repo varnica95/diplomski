@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Core\Database;
-use App\Includes\Validation;
+use App\Includes\RegistrationValidation;
 use App\Models\User;
 
 class Registration extends Controller
@@ -18,7 +18,7 @@ class Registration extends Controller
     {
         if(isset($_POST["signup-submit"]))
         {
-            $validation = new Validation($_POST);
+            $validation = new RegistrationValidation($_POST);
 
             if(!$validation->isPassed()) {
                 echo $this->view->render('Register/index.phtml', [

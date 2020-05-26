@@ -5,7 +5,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Includes\ParametersValidation;
-use App\Models\KidneyDisease;
+use App\Models\Kidney;
 
 class Parameters extends Controller
 {
@@ -24,7 +24,7 @@ class Parameters extends Controller
                     'errors' => $validation->getError()
                 ]);
             } else {
-                $test = new KidneyDisease($_POST);
+                $test = new Kidney($_POST);
                 $test->generateTests();
 
                 echo $this->view->render('Check/index.phtml', [

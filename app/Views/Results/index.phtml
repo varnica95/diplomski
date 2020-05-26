@@ -35,7 +35,7 @@
                     <td data-label="br."><?php echo $key += 1; ?></td>
                     <td data-label="Nalaz izdan"><?php echo $value["created"]; ?></td>
                     <td>
-                        <a href="/user/details/<?php echo $value["id"]; ?>">Pogledaj</a>
+                        <a href="/user/details/<?php echo $value["id"]; ?>/?XDEBUG_PROFILE=1">Pogledaj</a>
                         <a href="/user/delete/<?php echo $value["id"]; ?>">Obriši</a>
                     </td>
                 </tr>

@@ -15,8 +15,8 @@ class Result extends Controller
         $results = new Results(Session::get("id"));
 
         echo $this->view->render('Results/index.phtml', [
-           'row' => $results->getUserResults()
-            ]);
+            'row' => $results->getUserResults()
+        ]);
     }
 
     public function details($id)

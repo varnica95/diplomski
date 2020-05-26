@@ -2,7 +2,7 @@
 
 namespace App\Includes;
 
-class Validation
+class RegistrationValidation
 {
     use ErrorHandlerTrait;
 
