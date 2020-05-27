@@ -119,7 +119,7 @@ class User extends Model
     public function getpassword()
     {
         $password = $this->load("users", "id", Session::get("id"), ["password"]);
-        return  $password[0]["password"];
+        return $password[0]["password"];
     }
 
     public function updatepassword()

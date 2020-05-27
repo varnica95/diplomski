@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Parameters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Parameters.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Check/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Predict/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Includes/ProfileSettingsValidation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Includes/ProfileSettingsValidation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Predict/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Predict/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Results/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Results/index.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/header.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/header.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +183,8 @@
       <workItem from="1590438286064" duration="3757000" />
       <workItem from="1590442825358" duration="4484000" />
       <workItem from="1590491533737" duration="5550000" />
-      <workItem from="1590518800499" duration="3952000" />
+      <workItem from="1590518800499" duration="6744000" />
+      <workItem from="1590566047970" duration="7137000" />
     </task>
     <task id="LOCAL-00001" summary="removed comment in Login.php">
       <created>1590525393884</created>
@@ -189,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590525393884</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Check became Predict">
+      <created>1590529467991</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590529467991</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +208,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="removed comment in Login.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed comment in Login.php" />
+    <MESSAGE value="Check became Predict" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check became Predict" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="672" key="#Notifications" timestamp="1588668149156">
@@ -231,10 +243,10 @@
     </state>
     <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590183188517" />
     <state x="693" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1053@0.0.1920.1053" timestamp="1590438474754" />
-    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2" timestamp="1590525393752">
+    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2" timestamp="1590529467882">
       <screen x="0" y="0" width="1920" height="1053" />
     </state>
-    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2/0.0.1920.1053@0.0.1920.1053" timestamp="1590525393752" />
+    <state x="559" y="110" width="793" height="826" key="CommitChangelistDialog2/0.0.1920.1053@0.0.1920.1053" timestamp="1590529467882" />
     <state x="743" y="277" width="424" height="479" key="FileChooserDialogImpl" timestamp="1584548714896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

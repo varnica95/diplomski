@@ -38,7 +38,11 @@ class User extends Controller
 
     public function logout()
     {
-        \App\Models\User::deletecookie(Session::get('id'));
+
+        if(Cookie::exists(Config::getInstance()->getConfig("rememberme/cookie_name"))){
+            \App\Models\User::deletecookie(Session::get('id'));
+        }
+        
         Session::destroy();
         Cookie::delete(Config::getInstance()->getConfig("rememberme/cookie_name"));
 

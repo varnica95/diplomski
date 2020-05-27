@@ -36,11 +36,11 @@ class ProfileSettingsValidation
     {
         if (strlen($this->_data["new_password"]) < 5) {
             $this->makeError("password", "Duljina lozinke ne može biti manja od 5.");
-        } else if (!preg_match("#[0-9]+#", $this->_data["current_password"])) {
+        } else if (!preg_match("#[0-9]+#", $this->_data["new_password"])) {
             $this->makeError('password', 'Lozinka mora sadržavati broj.');
-        } else if (!preg_match("#[A-Z]+#", $this->_data["current_password"])) {
+        } else if (!preg_match("#[A-Z]+#", $this->_data["new_password"])) {
             $this->makeError('password', 'Lozinka mora sadržavati veliko slovo.');
-        } else if ($this->_data["new_password"] !== $this->_data["repeat_password"]) {
+        } else if ($this->_data["current_password"] !== $this->_data["repeat_password"]) {
             $this->makeError('password', 'Unesene lozinke se ne podudaraju.');
         }
     }
