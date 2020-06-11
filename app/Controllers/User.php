@@ -7,35 +7,11 @@ namespace App\Controllers;
 use App\Core\Config;
 use App\Core\Controller;
 use App\Includes\Cookie;
-use App\Includes\ParametersValidation;
 use App\Includes\ProfileSettingsValidation;
 use App\Includes\Session;
-use App\Models\Kidney;
-use App\Models\Results;
 
 class User extends Controller
 {
-
-    public function submit()
-    {
-        if (isset($_POST['check-submit'])) {
-            $validation = new ParametersValidation($_POST);
-
-            if (!$validation->isPassed()) {
-                echo $this->view->render('Predict/index.phtml', [
-                    'errors' => $validation->getError()
-                ]);
-            } else {
-                $test = new Kidney($_POST);
-                $test->generateTests();
-
-                echo $this->view->render('Predict/index.phtml', [
-                    'success' => "Submited"
-                ]);
-            }
-        }
-    }
-
     public function logout()
     {
 
