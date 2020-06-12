@@ -50,6 +50,7 @@ class User extends Model
                 return false;
             } else {
                 Session::set('id', $loggeduser->data['id']);
+                Session::set('gender', $loggeduser->data['gender']);
 
                 if($remember)
                 {
@@ -68,9 +69,7 @@ class User extends Model
                     }
                         Cookie::put($this->_cookiename, $hash, Config::getInstance()->getConfig("rememberme/cookie_expiry"));
                 }
-                Session::set('firstname', $loggeduser->data['firstname']);
-                Session::set('lastname', $loggeduser->data['lastname']);
-                Session::set('gender', $loggeduser->data['gender']);
+
 
                 return true;
             }
