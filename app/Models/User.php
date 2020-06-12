@@ -33,7 +33,6 @@ class User extends Model
         $this->usernameexists();
         $this->emailexists();
 
-
        if($this->isPassed()) {
            $this->data["password"] = password_hash($this->data['password'], PASSWORD_DEFAULT);
 
