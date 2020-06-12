@@ -199,16 +199,16 @@ class Model
         }
     }
 
-    protected function loaduser($table, $fields, $values)
+    protected function loaduser($table, $fields, $value)
     {
         try {
             $this->connection = Database::getInstance()->getConnection();
 
-            $sql = "SELECT * FROM {$table} WHERE {$fields[0]} = '{$values[0]}' OR {$fields[1]} = '{$values[1]}'";
+            $sql = "SELECT * FROM {$table} WHERE {$fields[0]} = '{$value}' OR {$fields[1]} = '{$value}'";
             $row = $this->connection->query($sql);
 
             $row->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
-
+            
             return $row->fetch();
         } catch (\PDOException $e) {
             $e->getMessage();

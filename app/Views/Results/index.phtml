@@ -24,9 +24,7 @@
                         echo 'id="pos"';
                     }
                 } else {
-                    if ($value["ckdprecision"] < 0.3333) {
-                        echo 'id="pos"';
-                    } else if ($value["ckdprecision"] <= 0.3333 || $value["ckdprecision"] < 0.6666) {
+                    if ( $value["ckdprecision"] < 0.5) {
                         echo 'id="halfsure"';
                     } else {
                         echo 'id="neg"';

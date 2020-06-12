@@ -42,7 +42,7 @@ class User extends Model
 
     public function userlogin($remember = false)
     {
-        $loggeduser = $this->loaduser('users', ['username', 'email'], [$this->data['usernameoremail'], $this->data['usernameoremail']]);
+        $loggeduser = $this->loaduser('users', ['username', 'email'], $this->data['usernameoremail']);
 
         if(!empty($loggeduser)) {
             if (!password_verify($this->data["password"], $loggeduser->data["password"])) {
