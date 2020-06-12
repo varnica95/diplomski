@@ -33,10 +33,11 @@ class User extends Model
         $this->usernameexists();
         $this->emailexists();
 
-        $this->data["password"] = password_hash($this->data['password'], PASSWORD_DEFAULT);
 
        if($this->isPassed()) {
-            $this->insert("users", $this->data);
+           $this->data["password"] = password_hash($this->data['password'], PASSWORD_DEFAULT);
+
+           $this->insert("users", $this->data);
         }
     }
 

@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/Parameters.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Core/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Home/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Home/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Login/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Login/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Predict/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Predict/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Register/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Register/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Results/details.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Results/details.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Results/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Results/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/Settings/index.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Settings/index.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/footer.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/foot.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Views/header.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/header.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-    </list>
+    <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +168,7 @@
       <workItem from="1590606175477" duration="6072000" />
       <workItem from="1591622951543" duration="10000" />
       <workItem from="1591883967061" duration="58000" />
-      <workItem from="1591884046977" duration="2120000" />
+      <workItem from="1591884046977" duration="2719000" />
     </task>
     <task id="LOCAL-00001" summary="removed comment in Login.php">
       <created>1590525393884</created>
