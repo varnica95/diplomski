@@ -14,17 +14,6 @@
     background-color: #405d27;
 }
 
-#again-button {
-    font-size: 20px;
-    line-height: 25px;
-    margin-left: 5%;
-    margin-top: 2%;
-    max-width: 350px;
-    color: #e2e2e2;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 #pos {
     background-color: #c94c4c;
     border-bottom: 1px solid #e2e2e2;

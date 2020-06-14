@@ -52,7 +52,7 @@ class Kidney extends Model
 
         $extraTest = $this->generateExtraTest();
 
-        $fromAzure = $this->checkDiseaseAzure([$systolic, $sg, $albumin_class, $sugar_class, $rbc,
+        $fromAzure = $this->checkDiseaseAzure([$diastolic, $sg, $albumin_class, $sugar_class, $rbc,
             $bu, $sc, $sod, $pot, $hemo, (int)$wbcc * 1000,
             $rbcc, $hypertension]);
 

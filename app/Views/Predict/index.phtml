@@ -38,8 +38,6 @@
                     <?php if (isset($errors["wbcc-notnumber"])): ?><label class="error-label">*<?php echo $errors["wbcc-notnumber"]; ?></label><br> <?php endif; ?>
                     <?php if (isset($errors["rbcc-notnumber"])): ?><label class="error-label">*<?php echo $errors["rbcc-notnumber"]; ?></label><br> <?php endif; ?>
 
-
-                    <a id="again-button" href="/parameters/">Pokušajte ponovno</a>
                 </div>
             </div>
 
@@ -54,8 +52,8 @@
                     <h3 class="page-text">Molimo upišite sistolički i dijastolički krvni tlak:</h3>
                 </div>
 
-                <input step="any" type="number" name="bp-sys" placeholder="sistolički krvni tlak">
-                <input  step="any" type="number" name="bp-dia" placeholder="dijastolički krvni tlak"><br>
+                <input step="any" type="number" name="bp-sys" placeholder="mmHg">
+                <input  step="any" type="number" name="bp-dia" placeholder="mmHg"><br>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step2' class="continue">
@@ -75,14 +73,14 @@
                     <h3 class="page-text">Molimo upišite broj eritrocita:</h3>
                 </div>
 
-                <input step="any" type="number" name="rbc" placeholder="Enter value"><br>
+                <input step="any" type="number" name="rbc" placeholder="x10^6/mm^3"><br>
 
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite hemoglobin:</h3>
                 </div>
 
-                <input step="any" type="number" name="hemo" placeholder="Enter value"><br>
+                <input step="any" type="number" name="hemo" placeholder="g/dL"><br>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step2' class="back">
@@ -107,33 +105,33 @@
                     <h3 class="page-text">Molimo upišite koncentraciju šečera:</h3>
                 </div>
 
-                <input step="any" type="number" name="su" placeholder="Enter value"><br>
+                <input step="any" type="number" name="su" placeholder="mmol/L"><br>
 
 
                 <div class="page-heading">
                 <h3 class="page-text">Molimo upišite koncentraciju ureje:</h3>
             </div>
 
-            <input step="any" type="number" name="bu" placeholder="Enter value"><br>
+            <input step="any" type="number" name="bu" placeholder="mmol/L"><br>
 
             <div class="page-heading">
                 <h3 class="page-text">Molimo upišite koncentraciju kreatinina:</h3>
             </div>
 
-            <input step="any" type="number" name="sc" placeholder="Enter value"><br>
+            <input step="any" type="number" name="sc" placeholder="μmol/L"><br>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite natrij:</h3>
                 </div>
 
-                <input step="any" type="number" name="sod" placeholder="Enter value"><br>
+                <input step="any" type="number" name="sod" placeholder="mmol/L"><br>
 
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite kalij:</h3>
                 </div>
 
-                <input step="any" type="number" name="pot" placeholder="Enter value"><br>
+                <input step="any" type="number" name="pot" placeholder="mmol/L"><br>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step3' class="back">
@@ -159,26 +157,26 @@
                     <h3 class="page-text">Molimo upišite specifičnu težinu urina:</h3>
                 </div>
 
-                <input step="any" type="number" name="sg" placeholder="1.010"><br>
+                <input step="any" type="number" name="sg"><br>
 
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite albumin:</h3>
                 </div>
 
-                <input step="any" type="number" name="al" placeholder="Enter value"><br>
+                <input step="any" type="number" name="al" placeholder="mg/danu"><br>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite broj leukocita u urinu:</h3>
                 </div>
 
-                <input step="any" type="number" name="wbcc" placeholder="Enter value"><br>
+                <input step="any" type="number" name="wbcc" placeholder="10^3/ml"><br>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite broj eritrocita u urinu:</h3>
                 </div>
 
-                <input step="any" type="number" name="rbcc" placeholder="Enter value"><br>
+                <input step="any" type="number" name="rbcc" placeholder="broje eritrocita"><br>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step4' class="back">

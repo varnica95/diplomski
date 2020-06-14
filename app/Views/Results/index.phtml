@@ -24,17 +24,13 @@
                         echo 'id="pos"';
                     }
                 } else {
-                    if ( $value["ckdprecision"] < 0.5) {
-                        echo 'id="halfsure"';
-                    } else {
                         echo 'id="neg"';
-                    }
                 } ?>>
                     <td data-label="br."><?php echo $key += 1; ?></td>
                     <td data-label="Nalaz izdan"><?php echo $value["created"]; ?></td>
                     <td>
                         <a href="/result/details/<?php echo $value["id"]; ?>/">Pogledaj</a>
-                        <a href="/user/delete/<?php echo $value["id"]; ?>">Obriši</a>
+                        <a href="/result/delete/<?php echo $value["id"]; ?>">Obriši</a>
                     </td>
                 </tr>
             <?php endforeach;
