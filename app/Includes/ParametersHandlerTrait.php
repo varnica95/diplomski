@@ -47,12 +47,12 @@ trait ParametersHandlerTrait
             $note = $this->getNote('rbc_high');
             $this->writeNote('rbc_high', $note["note"]);
 
-            $hemo_anemia = 0;
+            $rbc_class = 0;
         } else if ($rbc < 5.5) {
             $note = $this->getNote('rbc_normal');
             $this->writeNote('rbc_normal', $note["note"]);
 
-            $hemo_anemia = 1;
+            $rbc_class = 1;
         }
 
         if (Session::get("Gender") === "Female") {
@@ -78,7 +78,7 @@ trait ParametersHandlerTrait
                 $this->writeNote('hemo_low', $note["note"]);
             }
         }
-        return $hemo_anemia;
+        return $rbc_class;
     }
 
     public function biochemicalFactors($su, $bu, $sc, $sod, $pot)

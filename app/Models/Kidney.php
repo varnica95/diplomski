@@ -32,7 +32,7 @@ class Kidney extends Model
 
         $rbc = round($this->data["rbc"], 3);
         $hemo = round($this->data["hemo"], 3);
-        $this->hematologyFactors($rbc, $hemo);
+        $rbc_class = $this->hematologyFactors($rbc, $hemo);
 
         $bu = round($this->data["bu"], 3);
         $sc = round($this->data["sc"], 3);
@@ -45,14 +45,14 @@ class Kidney extends Model
         $sg = round($this->data["sg"], 5);
         $al = $this->data["al"];
         $wbcc = $this->data["wbcc"];
-        $rbcc = (int)$this->data["rbcc"];
+        $rbcc = $this->data["rbcc"];
 
         $alscRatio = round($al / $sc, 2);
         $albumin_class = $this->urinaryFactors($sg, $al, $rbcc, $wbcc, $alscRatio);
 
         $extraTest = $this->generateExtraTest();
 
-        $fromAzure = $this->checkDiseaseAzure([$diastolic, $sg, $albumin_class, $sugar_class, $rbc,
+        $fromAzure = $this->checkDiseaseAzure([$diastolic, $sg, $albumin_class, $sugar_class, $rbc_class,
             $bu, $sc, $sod, $pot, $hemo, (int)$wbcc * 1000,
             $rbcc, $hypertension]);
 
@@ -133,9 +133,8 @@ class Kidney extends Model
         ));
 
         $response = curl_exec($curl);
-
         curl_close($curl);
-
+        var_dump($response);
         $result = json_decode($response, true);
         $class = (int)$result["Results"]["output1"]["value"]["Values"][0][13];
         $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][14];
