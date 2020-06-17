@@ -47,7 +47,7 @@ class Kidney extends Model
         $wbcc = $this->data["wbcc"];
         $rbcc = $this->data["rbcc"];
 
-        $alscRatio = round($al / $sc, 2);
+        $alscRatio = round($bu / $sc, 2);
         $albumin_class = $this->urinaryFactors($sg, $al, $rbcc, $wbcc, $alscRatio);
 
         $extraTest = $this->generateExtraTest();

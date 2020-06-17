@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8b7625cc-cd61-4299-bbf1-cc11412d5088" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Includes/ParametersHandlerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Includes/ParametersHandlerTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Kidney.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Kidney.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Views/Results/details.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Views/Results/details.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,17 +112,12 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6437e913" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@255e950a" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@7dc83ea" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@25f79cda" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@49c22d9e" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -193,6 +188,8 @@
       <workItem from="1591954893365" duration="1769000" />
       <workItem from="1592072033569" duration="1758000" />
       <workItem from="1592117513426" duration="4376000" />
+      <workItem from="1592338930712" duration="599000" />
+      <workItem from="1592376723111" duration="472000" />
     </task>
     <task id="LOCAL-00001" summary="removed comment in Login.php">
       <created>1590525393884</created>
