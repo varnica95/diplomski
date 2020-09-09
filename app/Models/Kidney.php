@@ -63,7 +63,7 @@ class Kidney extends Model
                     $extraTest['clearance_creatinine'], $extraTest['gfr'],
                     array_values($this->getNotes()));
 
-       $this->insert("details_table", $data);
+        $this->insert("details_table", $data);
     }
 
     public function generateExtraTest()
@@ -72,10 +72,10 @@ class Kidney extends Model
         $creatinine = $this->data["sc"];
         $acute = $this->acute($urea, $creatinine);
 
+
         $userDetails = $this->getUserAgeAndWeight();
 
         $chronic = $this->chronic($userDetails["age"], $userDetails["weight"], $creatinine);
-
 
         return [
             "bun_sc_ratio" => $acute,
@@ -131,10 +131,9 @@ class Kidney extends Model
             ]\n      ]\n    }\n  },\n  \"GlobalParameters\": {}\n}",
             CURLOPT_HTTPHEADER => Config::getInstance()->getConfig("azure/header"),
         ));
-
         $response = curl_exec($curl);
         curl_close($curl);
-        var_dump($response);
+
         $result = json_decode($response, true);
         $class = (int)$result["Results"]["output1"]["value"]["Values"][0][13];
         $precision = (float)$result["Results"]["output1"]["value"]["Values"][0][14];
@@ -163,7 +162,6 @@ class Kidney extends Model
 
     protected function getUserAgeAndWeight()
     {
-        $details = $this->load("users", "id", Session::get("id"), ["age", "weight"]);
-        return $details[0];
+        return ($this->load("users", "id", Session::get("id"), ["age", "weight"]))[0];
     }
 }

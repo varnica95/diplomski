@@ -25,8 +25,9 @@ class ParametersValidation
     private function emptyfields()
     {
         foreach ($this->_data as $key => $value) {
+
             if ($key !== "check-submit") {
-                if (empty(($value))) {
+                if (!is_numeric($value)) {
                     $this->makeError($key, "Polja ne smiju biti prazna.");
                 }
             }

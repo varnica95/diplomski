@@ -8,7 +8,7 @@ trait ParametersHandlerTrait
 {
     public function bloodPressureHandler($systolic, $diastolic)
     {
-        if ($systolic < 120 && $diastolic < 80) {
+        if ($systolic < 120 && $diastolic <= 80) {
             $note = $this->getNote('bp_optimum');
             $this->writeNote('bp_normal', $note["note"]);
 
@@ -27,7 +27,7 @@ trait ParametersHandlerTrait
             $note = $this->getNote('bp_h1');
             $this->writeNote('bp_h1', $note["note"]);
 
-            return 1;
+            return '1';
         } else if ((160 <= $systolic && $systolic < 180) || (100 <= $diastolic && $diastolic < 110)) {
             $note = $this->getNote('bp_h2');
             $this->writeNote('bp_h2', $note["note"]);
@@ -117,24 +117,24 @@ trait ParametersHandlerTrait
         }
 
         if (Session::get("Gender") === "Female") {
-            if ($sc > 107) {
+            if ($sc > 97) {
                 $note = $this->getNote('sc_high');
                 $this->writeNote('sc_high', $note["note"]);
-            } else if (63 <= $sc && $sc <= 107) {
+            } else if (53 <= $sc && $sc <= 97) {
                 $note = $this->getNote('sc_normal');
                 $this->writeNote('sc_normal', $note["note"]);
-            } else if ($sc < 63) {
+            } else if ($sc < 53) {
                 $note = $this->getNote('sc_low');
                 $this->writeNote('sc_low', $note["note"]);
             }
         } else {
-            if ($sc > 125) {
+            if ($sc > 106) {
                 $note = $this->getNote('sc_high');
                 $this->writeNote('sc_high', $note["note"]);
-            } else if (79 <= $sc && $sc <= 125) {
+            } else if (71 <= $sc && $sc <= 106) {
                 $note = $this->getNote('sc_normal');
                 $this->writeNote('sc_normal', $note["note"]);
-            } else if ($sc < 79) {
+            } else if ($sc < 71) {
                 $note = $this->getNote('sc_low');
                 $this->writeNote('sc_low', $note["note"]);
             }
@@ -272,13 +272,9 @@ trait ParametersHandlerTrait
         {
             $note = $this->getNote('crcl_anem');
             $this->writeNote('crcl_anem', $note["note"]);
-
-            $ckd_anemia = 1;
         }else{
             $note = $this->getNote('crcl_anem_normal');
             $this->writeNote('crcl_anem_normal', $note["note"]);
-
-            $ckd_anemia = 0;
         }
 
         if($clearance_creatinine > 50)

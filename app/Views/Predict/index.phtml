@@ -13,30 +13,29 @@
                     <div class="panel-heading">
                         <h3>Uspjeh</h3>
                     </div>
-                    <div id="success">&#10004;Nalaz uspješno zabilježen. Rezultate možete pogledati <a href="/result/index">ovdje</a>.</div>
-                </div>
-            </div>
+                    <div id="success">&#10004;Nalaz uspješno zabilježen. Rezultate možete pogledati <a href="/result/index/">ovdje</a>.</div>
+                </div>           </div>
 
         <?php elseif (isset($errors)):?>
 
             <div id="p1">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3>Registracija neuspješna</h3>
+                        <h3>Provjera nije moguća</h3>
                     </div>
-                    <?php if (isset($errors["bp-sys-notnumber"])): ?><label class="error-label">*<?php echo $errors["bp-sys-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["bp-dia-notnumber"])): ?><label class="error-label">*<?php echo $errors["bp-dia-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["rbc-notnumber"])): ?><label class="error-label">*<?php echo $errors["rbc-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["hemo-notnumber"])): ?><label class="error-label">*<?php echo $errors["hemo-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["su-notnumber"])): ?><label class="error-label">*<?php echo $errors["su-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["bu-notnumber"])): ?><label class="error-label">*<?php echo $errors["bu-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["sc-notnumber"])): ?><label class="error-label">*<?php echo $errors["sc-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["sod-notnumber"])): ?><label class="error-label">*<?php echo $errors["sod-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["pot-notnumber"])): ?><label class="error-label">*<?php echo $errors["pot-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["sg-notfloat"])): ?><label class="error-label">*<?php echo $errors["sg-notfloat"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["al-notnumber"])): ?><label class="error-label">*<?php echo $errors["al-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["wbcc-notnumber"])): ?><label class="error-label">*<?php echo $errors["wbcc-notnumber"]; ?></label><br> <?php endif; ?>
-                    <?php if (isset($errors["rbcc-notnumber"])): ?><label class="error-label">*<?php echo $errors["rbcc-notnumber"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["bp-sys"])): ?><label class="error-label">*<?php echo $errors["bp-sys"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["bp-dia"])): ?><label class="error-label">*<?php echo $errors["bp-dia"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["rbc"])): ?><label class="error-label">*<?php echo $errors["rbc"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["hemo"])): ?><label class="error-label">*<?php echo $errors["hemo"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["su"])): ?><label class="error-label">*<?php echo $errors["su"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["bu"])): ?><label class="error-label">*<?php echo $errors["bu"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["sc"])): ?><label class="error-label">*<?php echo $errors["sc"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["sod"])): ?><label class="error-label">*<?php echo $errors["sod"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["pot"])): ?><label class="error-label">*<?php echo $errors["pot"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["sg"])): ?><label class="error-label">*<?php echo $errors["sg"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["al"])): ?><label class="error-label">*<?php echo $errors["al"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["wbcc"])): ?><label class="error-label">*<?php echo $errors["wbcc"]; ?></label><br> <?php endif; ?>
+                    <?php if (isset($errors["rbcc"])): ?><label class="error-label">*<?php echo $errors["rbcc"]; ?></label><br> <?php endif; ?>
 
                 </div>
             </div>
@@ -52,8 +51,15 @@
                     <h3 class="page-text">Molimo upišite sistolički i dijastolički krvni tlak:</h3>
                 </div>
 
-                <input step="any" type="number" name="bp-sys" placeholder="mmHg">
-                <input  step="any" type="number" name="bp-dia" placeholder="mmHg"><br>
+                <div>
+                    <input step="any" type="number" name="bp-sys" placeholder="mmHg">
+                    <span class="referent"><140 mmHg</span>
+                </div>
+
+                <div>
+                    <input  step="any" type="number" name="bp-dia" placeholder="mmHg">
+                    <span class="referent"><90 mmHg</span>
+                </div>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step2' class="continue">
@@ -73,14 +79,25 @@
                     <h3 class="page-text">Molimo upišite broj eritrocita:</h3>
                 </div>
 
-                <input step="any" type="number" name="rbc" placeholder="x10^6/mm^3"><br>
-
+                <div>
+                    <input step="any" type="number" name="rbc" placeholder="x10^6/mm^3">
+                    <span class="referent">&sim;5 x10<sup>6</sup>/mm<sup>3</sup></span>
+                </div>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite hemoglobin:</h3>
                 </div>
 
-                <input step="any" type="number" name="hemo" placeholder="g/dL"><br>
+                <div>
+                    <input step="any" type="number" name="hemo" placeholder="g/dL">
+                    <span class="referent">
+                         <?php if(\App\Includes\Session::get("gender") == "Male"): ?>
+                              14 - 18 g/dL
+                         <?php else: ?>
+                              12 - 16 g/dL
+                         <?php endif; ?>
+                    </span>
+                </div>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step2' class="back">
@@ -105,33 +122,51 @@
                     <h3 class="page-text">Molimo upišite koncentraciju šečera:</h3>
                 </div>
 
-                <input step="any" type="number" name="su" placeholder="mmol/L"><br>
-
+                <div>
+                    <input step="any" type="number" name="su" placeholder="mmol/L">
+                     <span class="referent">2.8 - 6.1 mmol/L</span>
+                </div>
 
                 <div class="page-heading">
                 <h3 class="page-text">Molimo upišite koncentraciju ureje:</h3>
             </div>
 
-            <input step="any" type="number" name="bu" placeholder="mmol/L"><br>
+             <div>
+                <input step="any" type="number" name="bu" placeholder="mmol/L">
+                <span class="referent">2.8 - 8.3 mmol/L</span>
+             </div>
 
             <div class="page-heading">
                 <h3 class="page-text">Molimo upišite koncentraciju kreatinina:</h3>
             </div>
 
-            <input step="any" type="number" name="sc" placeholder="μmol/L"><br>
-
+             <div>
+                <input step="any" type="number" name="sc" placeholder="μmol/L">
+                 <span class="referent">
+                       <?php if(\App\Includes\Session::get("gender") == "Male"): ?>
+                           73 - 106 μmol/L
+                       <?php else: ?>
+                            53 - 97 μmol/L
+                       <?php endif; ?>
+                </span>
+             </div>
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite natrij:</h3>
                 </div>
 
-                <input step="any" type="number" name="sod" placeholder="mmol/L"><br>
-
+              <div>
+                <input step="any" type="number" name="sod" placeholder="mmol/L">
+                <span class="referent">136 - 145 mmol/L</span>
+             </div>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite kalij:</h3>
                 </div>
 
-                <input step="any" type="number" name="pot" placeholder="mmol/L"><br>
+              <div>
+                <input step="any" type="number" name="pot" placeholder="mmol/L">
+                <span class="referent">3.5 - 5.3 mmol/L</span>
+             </div>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step3' class="back">
@@ -157,26 +192,38 @@
                     <h3 class="page-text">Molimo upišite specifičnu težinu urina:</h3>
                 </div>
 
-                <input step="any" type="number" name="sg"><br>
+                <div>
+                     <input step="any" type="number" name="sg">
+                     <span class="referent">1.001 - 1.035</span>
+                </div>
 
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite albumin:</h3>
                 </div>
 
-                <input step="any" type="number" name="al" placeholder="mg/danu"><br>
+                <div>
+                    <input step="any" type="number" name="al" placeholder="mg/danu">
+                    <span class="referent"><30 mg/danu</span>
+                </div>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite broj leukocita u urinu:</h3>
                 </div>
 
-                <input step="any" type="number" name="wbcc" placeholder="10^3/ml"><br>
+                <div>
+                    <input step="any" type="number" name="wbcc" placeholder="10^3/ml">
+                    <span class="referent">&le;10 x10<sup>3</sup>/ml</span>
+                </div>
 
                 <div class="page-heading">
                     <h3 class="page-text">Molimo upišite broj eritrocita u urinu:</h3>
                 </div>
 
-                <input step="any" type="number" name="rbcc" placeholder="broje eritrocita"><br>
+                <div>
+                    <input step="any" type="number" name="rbcc" placeholder="broje eritrocita">
+                    <span class="referent">&le;3</span>
+                </div>
 
                 <div class="btn-group" role="group" aria-label="...">
                     <label for='step4' class="back">

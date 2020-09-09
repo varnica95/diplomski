@@ -220,7 +220,7 @@ class Model
         try {
             $this->connection = Database::getInstance()->getConnection();
 
-            $sql = "SELECT note FROM notes WHERE class = '{$value}'";
+            $sql = "SELECT note FROM parameters_notes WHERE class = '{$value}'";
 
             $row = $this->connection->query($sql);
 

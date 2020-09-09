@@ -13,12 +13,7 @@ trait ErrorHandlerTrait
 
     public function isPassed()
     {
-        if(empty($this->_errors))
-        {
-            return true;
-        }
-
-        return false;
+        return empty($this->_errors);
     }
 
     public function makeError($errorkey, $desc)

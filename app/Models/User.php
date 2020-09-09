@@ -75,7 +75,7 @@ class User extends Model
             }
         }
         else{
-            $this->makeError("account", "Netočan korinički račun ili email adresa.");
+            $this->makeError("account", "Netočan korisnički račun ili email adresa.");
         }
     }
 

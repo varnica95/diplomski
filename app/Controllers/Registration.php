@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\Database;
 use App\Includes\RegistrationValidation;
 use App\Models\User;
 

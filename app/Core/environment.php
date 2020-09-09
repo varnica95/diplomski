@@ -5,7 +5,7 @@ return [
         "host" => "localhost",
         "database" => "diplomski",
         "username" => "root",
-        "password" => "password"
+        "password" => "secret"
     ],
 
     "rememberme" => [
